@@ -85,11 +85,12 @@ function my_register_sidebars() {
 
 
 // http://sivel.net/2009/03/adding-additional-links-to-the-output-from-wp_list_pages/
-add_filter('wp_list_pages', 'add_blog_link');
-function add_blog_link($output) {
-        $output .= '<li><a href="/blog/">Blog</a></li>';
-        return $output;
-}
+// add_filter('wp_list_pages', 'add_blog_link');
+// function add_blog_link($output) {
+//         $homeurl = get_bloginfo('url');
+//         $output .= '<li><a href="'. $homeurl .'">Blog</a></li>';
+//         return $output;
+// }
 
 
 //Filter content to add specific div around it

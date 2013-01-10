@@ -53,6 +53,7 @@ $args = array(
 );
 
 wp_list_pages( $args ); 
+// wp_page_menu( array( 'show_home' => 'Blog', 'sort_column' => 'menu_order' ) );
 ?>
 </ul>
 <!--
