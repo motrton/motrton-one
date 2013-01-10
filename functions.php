@@ -27,8 +27,8 @@ function superfish_script_with_jquery(){
 //       'boolean value to select whether you want to print the script in the footer or in the header'
 // );
 // 
-wp_register_script( 'hoverintent-script', get_template_directory_uri() . '/js/hoverIntent.js', array( 'jquery' ) );
-wp_enqueue_script( 'hoverintent-script' );
+// wp_register_script( 'hoverintent-script', get_template_directory_uri() . '/js/hoverIntent.js', array( 'jquery' ) );
+// wp_enqueue_script( 'hoverintent-script' );
 wp_register_script( 'superfish-script', get_template_directory_uri() . '/js/superfish.js', array( 'jquery' ) );
 wp_enqueue_script( 'superfish-script' );
 
@@ -113,9 +113,23 @@ add_filter( 'the_content', 'mytheme_content_ad' );
 add_action('wp_footer', 'show_template');
 
 function show_template() {
-    global $template;
+
+//    <div>
+  //<p>
+    //DEVELOPMENT only <?php
+    //echo $post->ID ." page ID";
+    // 
+  //</p>
+
+//</div>
+   global $template;
     $file = substr( strrchr( $template , "/" ), 1) ;
-    print_r("<div style='padding-left:10%;'><h5> DEBUGINFO  </h5><p>Used template file --> <strong>" . $file . "</strong></p></div>");
+    $heading = "<div style='padding-left:10%;'><h5> DEBUGINFO  </h5><p>";
+    $str1 = "Used template file --> <strong>" . $file . "</strong><br>";
+    $str2 = "Current ID -->  <strong>" . get_the_ID() . "</strong><br>";
+    $end = "</p></div>";
+
+    print_r($heading . $str1 .$str2. $end);
 }
 
  ?>

@@ -80,8 +80,11 @@ a:visited  { /* visited pseudo selector so IE6 applies text colour*/
      font-size: 80%;
    }
 
-  }
 
+  }
+  li:last-of-type{
+    float:right;
+  }
 }
 
 .sf-navbar {
@@ -135,20 +138,29 @@ ul.sf-navbar li li li.sfHover,
     color:@linkColor;
   }
 
-
-
   a:hover{
     color:@linkColorHover;
   }
 
-  // ul{
-  //   display: table;
-  //   li{
-  //     display:table-cell;
-  //   }
-  // }
+
+
 }
 
+.search{
+      // margin-top:5em!;
+      position:absolute;
+      top:0.8em;
+
+  .field{
+    
+    // height:@inputHeight;
+    .rounded( @inputBorderRadius);
+  }
+  .submit{
+  // height:@inputHeight;
+
+  }
+}
 .foot{
 
     font-size: 70%;

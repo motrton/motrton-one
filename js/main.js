@@ -26,7 +26,7 @@
  */
 jQuery(document).ready(function($){
     $("ul.sf-menu,menu").superfish({
-         pathClass: 'current_page_parent',
+         // pathClass: 'current_page_parent',
          pathLevels: 2,
          autoArrows: false,// disable generation of arrow mark-up
         dropShadows: false// disable drop shadows

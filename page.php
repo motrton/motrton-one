@@ -9,14 +9,7 @@
   <?php the_content(); ?>
 
 <!--   DEV -->
-<div>
-  <p>
-    DEVELOPMENT only <?php
-    echo $post->ID ." page ID";
-    ?> 
-  </p>
 
-</div>
 <!-- DEV -->
   <?php endwhile; else: ?>
     <p><?php _e('Sorry, this page does not exist.'); ?></p>

@@ -28,7 +28,7 @@
     <div class="container">
 
       <div class="row">
-        <div class="span12">
+        <div class="span11">
 <div class="themenu"> 
 
 
@@ -52,12 +52,9 @@ $args = array(
     'post_status'  => 'publish' 
 );
 
-wp_list_pages( $args ); 
-// wp_page_menu( array( 'show_home' => 'Blog', 'sort_column' => 'menu_order' ) );
-?>
-</ul>
-<!--
- //   $args = array(
+wp_list_pages( $args );
+// this would list pages
+//   $args = array(
  //    'sort_column' => 'menu_order, post_title',
  //    'menu_class'  => 'sf-menu sf-navbar',
  //    'include'     => '',
@@ -66,31 +63,40 @@ wp_list_pages( $args );
  //    'show_home'   => false,
  //    'link_before' => '',
  //    'link_after'  => '' );
-
  // wp_page_menu( $args );
+// wp_page_menu( array( 'show_home' => 'Blog', 'sort_column' => 'menu_order' ) );
+?>
+<!-- found here:
+http://wordpress.org/support/topic/adding-the-searchform-to-the-navbar
+-->
+<li class="search pull-right"><?php get_search_form(); ?></li>
 
-/*
-        $defaults = array(
-                'theme_location'  => 'primary',
-                'menu'            => 'custom_menu',
-                'container'       => 'div',
-                'container_class' => 'themenu',
-                'container_id'    => '',
-                'menu_class'      => 'sf-menu sf-navbar',
-                'menu_id'         => '',
-                'echo'            => 1,
-                'fallback_cb'     => 'wp_page_menu',
-                'before'          => '',
-                'after'           => '',
-                'link_before'     => '',
-                'link_after'      => '',
-                'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                'depth'           => 2,
-                'walker'          => ''
-                );
+</ul>
+<!--
 
-   wp_nav_menu( $defaults );
-   */
+ <?php 
+   //      $defaults = array(
+   //              'theme_location'  => 'primary',
+   //              'menu'            => 'custom_menu',
+   //              'container'       => 'div',
+   //              'container_class' => 'themenu',
+   //              'container_id'    => '',
+   //              'menu_class'      => 'sf-menu sf-navbar',
+   //              'menu_id'         => '',
+   //              'echo'            => 1,
+   //              'fallback_cb'     => 'wp_page_menu',
+   //              'before'          => '',
+   //              'after'           => '',
+   //              'link_before'     => '',
+   //              'link_after'      => '',
+   //              'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+   //              'depth'           => 2,
+   //              'walker'          => ''
+   //              );
+
+   // wp_nav_menu( $defaults );
+ ?>
+   
 -->
 </div>
 </div>
