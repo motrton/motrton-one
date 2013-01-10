@@ -1,0 +1,153 @@
+// Copyright (c)  2012 
+// Fabian "fabiantheblind" Morón Zirfas  
+// Permission is hereby granted, free of charge, to any 
+// person obtaining a copy of this software and associated
+// documentation files (the "Software"), to deal in the Software
+// without restriction, including without limitation the rights 
+// to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to  permit persons to 
+// whom the Software is furnished to do so, subject to 
+// the following conditions:  
+// The above copyright notice and this permission notice
+// shall be included in all copies or substantial portions of the Software.  
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+// OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF  CONTRACT,
+// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTIO
+// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  
+
+// see also http://www.opensource.org/licenses/mit-license.php
+
+// we need to seprate this from the style so we load first bootstrap
+// with the style and than the superfish stuff and than we overwrite
+// 
+@import url('../bootstrap/less/custom-bs-variables.less');
+
+/**
+ * Colors
+ */
+
+
+
+/*
+My Mixins
+ */
+
+.rounded(@radius: 2px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+  -moz-background-clip: padding; 
+  -webkit-background-clip: padding-box; 
+  background-clip: padding-box; 
+}
+
+/*
+This is where im working ;ftb
+ */
+
+
+
+/**
+ * overwrite superfish
+ */
+
+
+ul.sf-menu {
+ a {
+  border-left:  0px ;
+  border-top:   0px ;
+ color:      @linkColor;
+}
+a:visited  { /* visited pseudo selector so IE6 applies text colour*/
+  color:      @linkColor;
+
+}
+
+  .rounded(3px);
+
+  width: 100%;
+  // this controls the menu top width
+  li{
+   // width: (100%)/5;
+    text-align: center;
+   ul.children{
+    
+     text-align: center;
+     font-size: 80%;
+   }
+
+  }
+
+}
+
+.sf-navbar {
+  background:@white;
+
+}
+.sf-navbar li {
+  background:@white;
+}
+.sf-navbar li li {
+   background:@white;
+
+}
+
+.sf-navbar li.current {
+   background:@white;
+}
+
+.sf-navbar li:hover,
+.sf-navbar li.sfHover,
+.sf-navbar li li.current,
+.sf-navbar a:focus, .sf-navbar a:hover, .sf-navbar a:active {
+   background:@white;
+}
+.sf-navbar ul li:hover,
+.sf-navbar ul li.sfHover,
+ul.sf-navbar ul li:hover li,
+ul.sf-navbar ul li.sfHover li,
+.sf-navbar ul a:focus, .sf-navbar ul a:hover, .sf-navbar ul a:active {
+   background:@white;
+}
+ul.sf-navbar li li li:hover,
+ul.sf-navbar li li li.sfHover,
+.sf-navbar li li.current li.current,
+.sf-navbar ul li li a:focus, .sf-navbar ul li li a:hover, .sf-navbar ul li li a:active {
+   background:@white;
+}
+.themenu{
+
+ 
+  font-size: 1.5em;
+   :first-child{
+     text-align: left;
+   }
+
+  //  :last-child{
+  //   text-align: right;
+  // }
+
+  a{
+    color:@linkColor;
+  }
+  a:hover{
+    color:@linkColorHover;
+  }
+
+  // ul{
+  //   display: table;
+  //   li{
+  //     display:table-cell;
+  //   }
+  // }
+}
+
+.foot{
+
+    font-size: 70%;
+}
+
+@import url('../bootstrap/less/bootstrap-responsive.less');
