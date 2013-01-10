@@ -45,16 +45,6 @@ Template Name: Zwei-Splaten-Seite
 
   ?>
 
-<!--   DEV -->
-<div>
-  <p>
-    DEVELOPMENT only <?php
-    echo $post->ID ." page ID on 2 column layout";
-    ?> 
-  </p>
-
-</div>
-<!-- DEV -->
   <?php endwhile; else: ?>
     <p><?php _e('Sorry, this page does not exist.'); ?></p>
   <?php endif; ?>
