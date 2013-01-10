@@ -1,3 +1,4 @@
+
 // Copyright (c)  2012 
 // Fabian "fabiantheblind" Morón Zirfas  
 // Permission is hereby granted, free of charge, to any 
@@ -25,6 +26,7 @@
 // 
 @import url('../bootstrap/less/custom-bs-variables.less');
 @import url('custom-mixins.less');
+@import url('elements.less');
 
 /**
  * Colors
@@ -36,14 +38,14 @@
 My Mixins
  */
 
-.rounded(@radius: 2px) {
-  -webkit-border-radius: @radius;
-  -moz-border-radius: @radius;
-  border-radius: @radius;
-  -moz-background-clip: padding; 
-  -webkit-background-clip: padding-box; 
-  background-clip: padding-box; 
-}
+// .rounded(@radius: 2px) {
+//   -webkit-border-radius: @radius;
+//   -moz-border-radius: @radius;
+//   border-radius: @radius;
+//   -moz-background-clip: padding; 
+//   -webkit-background-clip: padding-box; 
+//   background-clip: padding-box; 
+// }
 
 /*
 This is where im working ;ftb
@@ -166,4 +168,17 @@ ul.sf-navbar li li li.sfHover,
     font-size: 70%;
 }
 
+
+/**
+ * home.php
+ */
+
+#image-container-inner-home{
+      padding-top: 1em;
+
+  img{
+    .rounded(@borderRadiusLarge);
+
+  }
+}
 @import url('../bootstrap/less/bootstrap-responsive.less');
