@@ -855,3 +855,4 @@ body{padding-bottom:40px;font-family:'Source Sans Pro',sans-serif;}body p{font-s
 p.post-subline{font-size:0.9em;}
 #postnav .alignleft{float:left;}
 #postnav .alignright{float:right;}
+#helloworld h1,#helloworld h2,#helloworld h3,#helloworld h4{text-shadow:-1px -1px 1px #9e9e9e,1px 1px 1px #ffffff;}

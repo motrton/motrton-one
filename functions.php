@@ -110,10 +110,12 @@ add_filter( 'the_content', 'mytheme_content_ad' );
 // DEVELOPMENT TOOL
 
 // For debugging - show template file
-add_action('wp_head', 'show_template');
+add_action('wp_footer', 'show_template');
+
 function show_template() {
     global $template;
-    print_r($template);
+    $file = substr( strrchr( $template , "/" ), 1) ;
+    print_r("<div style='padding-left:10%;'><h5> DEBUGINFO  </h5><p>Used template file --> <strong>" . $file . "</strong></p></div>");
 }
 
  ?>
