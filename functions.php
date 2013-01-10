@@ -40,8 +40,8 @@ function my_styles() {
     wp_register_style( 'superfish', get_template_directory_uri() . '/css/superfish.css' );
     wp_enqueue_style( 'superfish' );
 
-    wp_register_style( 'superfish-navbar', get_template_directory_uri() . '/css/superfish-navbar.css' );
-    wp_enqueue_style( 'superfish-navbar' );
+    // wp_register_style( 'superfish-navbar', get_template_directory_uri() . '/css/superfish-navbar.css' );
+    // wp_enqueue_style( 'superfish-navbar' );
 
     wp_register_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.css' );
     wp_enqueue_style( 'font-awesome' );

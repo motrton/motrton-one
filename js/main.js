@@ -24,17 +24,15 @@
 /**
  * using superfish plugin
  */
-$(document).ready(function(){
+jQuery(document).ready(function($){
     $("ul.sf-menu,menu").superfish({
-         pathClass: 'current_page_parent,li.current_page_item',
+         pathClass: 'current_page_parent',
          pathLevels: 2,
          autoArrows: false,// disable generation of arrow mark-up
         dropShadows: false// disable drop shadows
     });
 
-
 // if($('a').attr('title')==='link'){
-
 // $('a[title="link"]').append(' <i class="icon-hand-right"></i>');
 // selct all in container main
 // $('#main').find('a').append(' <i class="icon-hand-right"></i>');
