@@ -22,12 +22,12 @@ ul.sf-menu {
 ul.sf-menu a {
   border-left: 0px ;
   border-top: 0px ;
-  color: #0088cc;
+  color: #7caf53;
 }
 ul.sf-menu a:visited {
   /* visited pseudo selector so IE6 applies text colour*/
 
-  color: #0088cc;
+  color: #7caf53;
 }
 ul.sf-menu li {
   text-align: center;
@@ -80,10 +80,10 @@ ul.sf-navbar li li li.sfHover,
   text-align: left;
 }
 .themenu a {
-  color: #0088cc;
+  color: #7caf53;
 }
 .themenu a:hover {
-  color: #005580;
+  color: #577c3a;
 }
 .foot {
   font-size: 70%;
