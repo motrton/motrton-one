@@ -17,8 +17,10 @@
                     echo ' <a href="' . $dashboardlink . '""> Dashboard <i class="icon-wrench"></i></a> | <a href="' . $logoutlink . '">Ausloggen <i class="icon-signout"></i></a>' ; 
                  }else{
                     
-                    echo ' | <a href="' . $loginlink . '""> Einloggen <i class="icon-signin"></i></a> | <a href="' . $registerlink . '""> Registrieren <i class="icon-user"></i></a>'; 
-
+                    echo ' | <a href="' . $loginlink . '""> Einloggen <i class="icon-signin"></i></a>';
+                    if(get_option('users_can_register')) { 
+                    echo '| <a href="' . $registerlink . '""> Registrieren <i class="icon-user"></i></a>'; 
+                    }
                     
                  } ?>
                 </p>
