@@ -47,7 +47,11 @@
   <hr>
 
 <div >
-  <p class="post-subline">Dieser Post wurde von <?php the_author_posts_link(); ?> geschrieben und ist in der/den Kategorie(en) <?php the_category(', '); ?>.<br> <?php edit_post_link('Post editieren', '', ''); ?></p>
+  <p class="post-subline">Dieser Post wurde von <?php the_author_posts_link(); ?> geschrieben und ist in der/den Kategorie(en) <?php the_category(', '); ?>.<br> <?php 
+  if ( is_user_logged_in() ) {
+    edit_post_link('Post editieren', '', '');
+  }
+     ?></p>
   <p>
     <!-- Post navigation -->
 
