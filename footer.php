@@ -5,8 +5,14 @@
         <div class="span12">
             <footer class="foot">
                 <p>
-                    <a href=" <?php get_permalink( 163 ) ?> ">Impressum</a> | <a href="<?php echo get_permalink( 14 ); ?>">Kontakt</a> | <a href="<?php echo get_permalink( 17 ); ?>">Newsletter</a> &nbsp;&nbsp;&nbsp;
-                    <?php
+                <?php
+                $options = get_option('motrton-one_options');
+
+            $impressumpage = '<a href="' . get_permalink( $options['impressumpage'] ) .'">Impressum</a> |';
+            $contactpage = ' <a href="'. get_permalink( $options['contactpage'] ) . '">Kontakt</a> |';
+            $newsletterpage = '<a href="' . get_permalink( $options['newsletterpage'] ) . '">Newsletter</a> &nbsp;&nbsp;&nbsp';
+            echo $impressumpage . $contactpage . $newsletterpage;
+
                     $dashboardlink = admin_url();
                     $loginlink = wp_login_url( get_permalink() );
                     $logoutlink =  wp_logout_url( get_permalink() );

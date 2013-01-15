@@ -1,7 +1,7 @@
 ul.sf-menu{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-webkit-background-clip:padding-box;-moz-background-clip:padding-box;background-clip:padding-box;width:100%;}ul.sf-menu a{border-left:0px ;border-top:0px ;color:#31af4e;}
 ul.sf-menu a:visited{color:#31af4e;}
 ul.sf-menu li{text-align:center;}ul.sf-menu li ul.children{text-align:center;font-size:80%;}
-ul.sf-menu li:last-of-type{float:right;}
+ul.sf-menu>li:last-of-type{float:right;}
 .sf-navbar{background:#ffffff;}
 .sf-navbar li{background:#ffffff;}
 .sf-navbar li li{background:#ffffff;}

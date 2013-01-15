@@ -22,24 +22,27 @@
     <?php wp_enqueue_script("jquery"); ?>
     <?php wp_head(); ?>
   </head>
-
   <body>
 <header>
     <div class="container">
 
       <div class="row">
         <div class="span11">
-<div class="themenu"> 
+          <div class="themenu"> 
 
 
 <ul class="sf-menu sf-navbar">
+
         <?php
+        
+        $options = get_option('motrton-one_options');
+
 $args = array(
     'depth'        => 0,
     'show_date'    => '',
     'date_format'  => get_option('date_format'),
     'child_of'     => 0,
-    'exclude'      => '163,220',
+    'exclude'      =>  $options['excludepages'],
     'include'      => '',
     'title_li'     => __(''),
     'echo'         => 1,
@@ -51,27 +54,41 @@ $args = array(
     'post_type'    => 'page',
     'post_status'  => 'publish' 
 );
+ wp_list_pages( $args );
 
-wp_list_pages( $args );
-// this would list pages
-//   $args = array(
- //    'sort_column' => 'menu_order, post_title',
- //    'menu_class'  => 'sf-menu sf-navbar',
- //    'include'     => '',
- //    'exclude'     => '',
- //    'echo'        => true,
- //    'show_home'   => false,
- //    'link_before' => '',
- //    'link_after'  => '' );
- // wp_page_menu( $args );
+
 // wp_page_menu( array( 'show_home' => 'Blog', 'sort_column' => 'menu_order' ) );
 ?>
 <!-- found here:
 http://wordpress.org/support/topic/adding-the-searchform-to-the-navbar
 -->
-<li class="search pull-right"><?php get_search_form(); ?></li>
-
+ <li class="search pull-right"><?php get_search_form(); ?></li> 
 </ul>
+</div>
+</div>
+</div> <!-- close row -->
+      <!-- <div class="row"> -->
+        <!-- <div class="span11"> -->
+          <!-- <div class="themenu">  -->
+ <?php 
+//  $options = get_option('motrton-one_options');
+
+// // this would list pages
+//   $argspagemenu = array(
+//     'sort_column' => 'menu_order, post_title',
+//     'menu_class'  => 'menu-inner',
+//     'include'     => '',
+//     'exclude'     => $options['excludepages'],
+//     'echo'        => true,
+//     'show_home'   => false,
+//     'link_before' => '',
+//     'link_after'  => '' );
+//  wp_page_menu( $argspagemenu );
+?>
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
 <!--
 
  <?php 
@@ -98,9 +115,8 @@ http://wordpress.org/support/topic/adding-the-searchform-to-the-navbar
  ?>
    
 -->
-</div>
-</div>
-</div> <!-- close row -->
+
+
 </header>
 <hr>
 </div> <!-- close container -->

@@ -6,7 +6,7 @@
   <div class="row" id="masterrow">
 
 
-    <div class="span8" id="outer">
+    <div class="span8 offset1" id="outer">
         <div class="linked">
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
       <div class="row" id="inner">
@@ -42,9 +42,9 @@
               echo "<img src=\"{$firstImageSrc[0]}\"  />"; 
               echo "</div>"; // close span2 image-container-inner-home
               //}
-            echo '<div class="span6" id="text-excerpt">';
+            echo '<div class="span5" id="text-excerpt">';
             }else{
-          echo '<div class="span8" id="text-excerpt">';
+          echo '<div class="span8 offset1" id="text-excerpt">';
           }
       ?>
       <!-- content -->
