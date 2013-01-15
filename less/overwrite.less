@@ -28,55 +28,13 @@
 @import url('custom-mixins.less');
 @import url('elements.less');
 
-/**
- * Colors
- */
-
-
-
-/*
-My Mixins
- */
-
-// .rounded(@radius: 2px) {
-//   -webkit-border-radius: @radius;
-//   -moz-border-radius: @radius;
-//   border-radius: @radius;
-//   -moz-background-clip: padding; 
-//   -webkit-background-clip: padding-box; 
-//   background-clip: padding-box; 
-// }
-
 /*
 This is where im working ;ftb
  */
-
-
-
 /**
  * overwrite superfish
  */
 
-
-/**
- *
- ul li{
-    display:inline;
-    position:relative;
-}
-ul li ul{
-    display:inline;
-    position:absolute;
-    top:20px;
-    left:0;
-    white-space:nowrap;
-}
-ul li li{
-    display:inline;
-}
-
-
- */
 
 ul.sf-menu {
  a {
@@ -89,22 +47,20 @@ a:visited  { /* visited pseudo selector so IE6 applies text colour*/
 
 }
 
-  .rounded(3px);
+  // .rounded(3px);
 
   width: 100%;
   // this controls the menu top width
   li{
     display:inline;
     position:relative;
-   // width: (100%)/5;
-    // text-align: center;
+
    ul.children{
     
      text-align: center;
      font-size: 80%;
      display:inline;
     position:absolute;
-    // top:20px;
     left:0;
     white-space:nowrap;
    }
@@ -114,14 +70,11 @@ a:visited  { /* visited pseudo selector so IE6 applies text colour*/
    }
 
   }
-  // li:last-of-type{
-  //    float:right;
-  // }
-}
 
-ul.sf-menu > li:last-of-type{
- float:right;
 }
+// ul.sf-menu > li:last-of-type{
+//  float:right;
+// }
 
 
 .themenu{
@@ -141,6 +94,23 @@ ul.sf-menu > li:last-of-type{
   }
 
 
+
+ul.sf-menu.sf-navbar{
+  .rounded(0px);
+  padding-bottom: 0px;
+
+  // .simple-border-bottom(@linkColor);
+  //   border-width: 1px;
+  //   border-bottom-style: solid;
+  // border-bottom: 1px solid  @linkColor;
+  // box-shadow: inset 0 1px 0 white;
+}
+
+}
+
+form:focus,input:focus {
+.rounded(0px);
+border-color:@linkColor !important;
 
 }
 
@@ -165,7 +135,7 @@ ul.sf-menu > li:last-of-type{
 }
 @import url('../bootstrap/less/bootstrap-responsive.less');
 
-nav > ul > li > ul {display:none}
-nav > ul > li:hover ul {display:block}
-nav > ul > li > ul > li > ul{display:none}
-nav > ul > li > ul > li:hover ul {display:block}
+// nav > ul > li > ul {display:none}
+// nav > ul > li:hover ul {display:block}
+// nav > ul > li > ul > li > ul{display:none}
+// nav > ul > li > ul > li:hover ul {display:block}
