@@ -24,14 +24,26 @@
   </head>
   <body>
 <header>
-    <div class="container">
-      <div class="row">
-        <div class="span11">
-          <div class="themenu"> 
 
-
-<ul class="sf-menu sf-navbar">
-
+<!-- Lets try to get a responsive menu for phones add  visible-phone -->
+<div class="navbar navbar-fixed-top visible-phone">  
+  <div class="navbar-inner">  
+    <div class="container">  
+<!-- <ul class="nav">
+  <li class="dropdown">  
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">  
+          Services  
+          <b class="caret"></b>  
+    </a>  
+    <ul class="dropdown-menu">  
+     <li><a href="#">Web Design</a></li>  
+    <li><a href="#">Web development</a></li>  
+    <li><a href="#">Wordpress Theme development</a></li>  
+    </ul>
+  </li>
+</ul> -->
+<ul class="nav">
+  <!-- wp_list_pages start -->
         <?php
         
         $options = get_option('motrton-one_options');
@@ -56,12 +68,60 @@ $args = array(
  wp_list_pages( $args );
 
 
-// wp_page_menu( array( 'show_home' => 'Blog', 'sort_column' => 'menu_order' ) );
 ?>
-<!-- found here:
+<!-- wp_list_pages start -->
+
+</ul>
+<!--   <ul class="nav">
+  <li><a href="<?php echo get_permalink(69); ?>">Blog</a></li>
+</ul>  -->
+    </div>  <!-- close container -->
+  </div>  <!-- close navbar inner -->
+</div> <!-- clse navbar fixed top -->
+  <div class="nav pull-right visible-phone" id="phone-search"><?php get_search_form(); ?></div>
+
+    <div class="container hidden-phone">
+      <div class="row">
+        <div class="span11">
+          <div class="themenu"> 
+
+
+<ul class="sf-menu sf-navbar hidden-phone">
+<!-- wp_list_pages start -->
+        <?php
+        
+        $options = get_option('motrton-one_options');
+
+$args = array(
+    'depth'        => 0,
+    'show_date'    => '',
+    'date_format'  => get_option('date_format'),
+    'child_of'     => 0,
+    'exclude'      =>  $options['excludepages'],
+    'include'      => '',
+    'title_li'     => __(''),
+    'echo'         => 1,
+    'authors'      => '',
+    'sort_column'  => 'menu_order, post_title',
+    'link_before'  => '',
+    'link_after'   => '',
+    'walker'       => '',
+    'post_type'    => 'page',
+    'post_status'  => 'publish' 
+);
+ wp_list_pages( $args );
+
+
+?>
+<!-- wp_list_pages start -->
+
+
+<!--
+Searchform
+found here:
 http://wordpress.org/support/topic/adding-the-searchform-to-the-navbar
 -->
- <li class="search pull-right"><?php get_search_form(); ?></li> 
+ <li class="search pull-right" id="desktop-search"><?php get_search_form(); ?></li> 
 </ul>
 </div>
 </div>
@@ -69,4 +129,5 @@ http://wordpress.org/support/topic/adding-the-searchform-to-the-navbar
 </div> <!-- close container -->
 
 </header>
-<hr>
+<!-- <hr class="hidden-phone"> -->
+<div class="border"></div>

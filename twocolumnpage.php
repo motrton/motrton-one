@@ -23,7 +23,7 @@ Template Name: Zwei-Splaten-Seite
         if ($attachments) {
             foreach ($attachments as $attachment) {
             //echo apply_filters('the_title', $attachment->post_title);
-            echo '<img src="'.wp_get_attachment_url($attachment->ID, 'thumbnail', false, false).'" />';
+            echo '<img src="'.wp_get_attachment_url($attachment->ID, 'thumbnail', false, false).'" alt="" />';
         }
     }
 ?>

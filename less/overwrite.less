@@ -122,41 +122,8 @@ a:visited  { /* visited pseudo selector so IE6 applies text colour*/
 ul.sf-menu > li:last-of-type{
  float:right;
 }
-.sf-navbar {
-  background:@white;
 
-}
-.sf-navbar li {
-  background:@white;
-}
-.sf-navbar li li {
-   background:@white;
 
-}
-
-.sf-navbar li.current {
-   background:@white;
-}
-
-.sf-navbar li:hover,
-.sf-navbar li.sfHover,
-.sf-navbar li li.current,
-.sf-navbar a:focus, .sf-navbar a:hover, .sf-navbar a:active {
-   background:@white;
-}
-.sf-navbar ul li:hover,
-.sf-navbar ul li.sfHover,
-ul.sf-navbar ul li:hover li,
-ul.sf-navbar ul li.sfHover li,
-.sf-navbar ul a:focus, .sf-navbar ul a:hover, .sf-navbar ul a:active {
-   background:@white;
-}
-ul.sf-navbar li li li:hover,
-ul.sf-navbar li li li.sfHover,
-.sf-navbar li li.current li.current,
-.sf-navbar ul li li a:focus, .sf-navbar ul li li a:hover, .sf-navbar ul li li a:active {
-   background:@white;
-}
 .themenu{
 
  
@@ -164,11 +131,6 @@ ul.sf-navbar li li li.sfHover,
    :first-child{
      text-align: left;
    }
-
-  //  :last-child{
-  //   text-align: right;
-  // }
-  // 
 
   a{
     color:@linkColor;
@@ -182,21 +144,7 @@ ul.sf-navbar li li li.sfHover,
 
 }
 
-.search{
-      // margin-top:5em!;
-      position:absolute;
-      top:0.8em;
 
-  .field{
-    
-    // height:@inputHeight;
-    .rounded( @inputBorderRadius);
-  }
-  .submit{
-  // height:@inputHeight;
-
-  }
-}
 .foot{
 
     font-size: 70%;
@@ -216,3 +164,8 @@ ul.sf-navbar li li li.sfHover,
   }
 }
 @import url('../bootstrap/less/bootstrap-responsive.less');
+
+nav > ul > li > ul {display:none}
+nav > ul > li:hover ul {display:block}
+nav > ul > li > ul > li > ul{display:none}
+nav > ul > li > ul > li:hover ul {display:block}

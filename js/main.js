@@ -21,16 +21,31 @@
 
 // see also http://www.opensource.org/licenses/mit-license.php
 
-/**
- * using superfish plugin
- */
+
+
 jQuery(document).ready(function($){
+
+
+    /**
+    * using superfish plugin
+    */
+
+var width = $(window).width();
+if (width >=480) {
     $("ul.sf-menu,menu").superfish({
          // pathClass: 'current_page_parent',
          pathLevels: 2,
          autoArrows: false,// disable generation of arrow mark-up
         dropShadows: false// disable drop shadows
     });
+}
+/**
+ * END SUPERFISH
+ */
+
+/**
+ * ADDING <i> to every link in specific container
+ */
 
 // if($('a').attr('title')==='link'){
 // $('a[title="link"]').append(' <i class="icon-hand-right"></i>');
@@ -39,7 +54,21 @@ jQuery(document).ready(function($){
 // the linked attribute gets appended to the content via
 // a filter
  $('.linked').find('a').append(' <i class="icon-hand-right"></i>');
-
     // }
+/**
+ * END OF LINK ADDING
+ */
+
+
+$('.nav').children('li').addClass('dropdown');
+$('ul.nav > li.dropdown').children('a').addClass('dropdown-toggle');
+
+$('.dropdown-toggle').attr('data-toggle','dropdown');
+$('a.dropdown-toggle').append('  <b class="caret"></b>');
+$('li.dropdown > ul.children').addClass('dropdown-menu');
+// $('.dropdown-menu').removeClass('children');
+// $('ul.dropdown-menu > li').removeClass();
+//
+
 
 });

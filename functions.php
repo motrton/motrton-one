@@ -37,10 +37,10 @@ wp_enqueue_script( 'superfish-script' );
 
 add_action('init', 'my_styles');
 function my_styles() {
-    wp_register_style( 'superfish', get_template_directory_uri() . '/css/superfish.css' );
+    wp_register_style( 'superfish', get_template_directory_uri() . '/css/custom-superfish.css' );
     wp_enqueue_style( 'superfish' );
 
-    wp_register_style( 'superfish-navbar', get_template_directory_uri() . '/css/superfish-navbar.css' );
+    wp_register_style( 'superfish-navbar', get_template_directory_uri() . '/css/custom-superfish-navbar.css' );
     wp_enqueue_style( 'superfish-navbar' );
 
     wp_register_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.css' );
@@ -56,9 +56,14 @@ function my_styles() {
 
 add_action('wp_enqueue_scripts','call_main_js');
 function call_main_js(){
+// wp_register_script( 'justtext-script', get_template_directory_uri() . '/js/justtext.js', array( 'jquery' ) );
+//  wp_enqueue_script( 'justtext-script' );
 
 wp_register_script( 'main-script', get_template_directory_uri() . '/js/main.js', array( 'jquery' ) );
  wp_enqueue_script( 'main-script' );
+
+
+
 }
 
 
@@ -108,14 +113,17 @@ add_filter( 'the_content', 'mytheme_content_ad' );
 
 
 // Add ID and CLASS attributes to the first <ul> occurence in wp_page_menu
-function add_menuclass($ulclass) {
-return preg_replace('/<ul>/', '<ul class="sf-menu sf-navbar">', $ulclass, 1);
-}
-add_filter('wp_page_menu','add_menuclass');
+// function add_menuclass($ulclass) {
+// return preg_replace('/<ul>/', '<ul class="sf-menu sf-navbar">', $ulclass, 1);
+// }
+// add_filter('wp_page_menu','add_menuclass');
+
 
 
 // include the theme options
 require_once ( get_template_directory() . '/theme-options.php' );
+
+
 
 // DEVELOPMENT TOOL
 
