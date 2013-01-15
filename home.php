@@ -9,7 +9,7 @@
     <div class="span8" id="outer">
         <div class="linked">
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-      <div class="row" id="inner">
+      <div class="row">
 <!--             <h2><a href= "<?php the_permalink(); ?>" ><?php the_title(); ?></a></h2>-->
             <h2><?php the_title(); ?></h2>
 
@@ -30,7 +30,7 @@
             // http://wordpress.org/support/topic/getting-thumbnails-of-images-attached-to-a-post  
             $images =& get_children( 'post_type=attachment&post_mime_type=image&post_parent=' . $post->ID );
             //foreach( $images as $imageID => $imagePost ){
-              echo '<div class="span2" id="image-container-inner-home">';
+              echo '<div class="span2 image-container-inner-home">';
               // echo wp_get_attachment_image($imageID , 'thumbnail', false);
               // 
               $firstImageSrc = wp_get_attachment_image_src(
@@ -39,16 +39,16 @@
                                   )
                                 );
 
-              echo "<img src=\"{$firstImageSrc[0]}\"  />"; 
+              echo "<img src=\"{$firstImageSrc[0]}\" alt=\"\" />"; 
               echo "</div>"; // close span2 image-container-inner-home
               //}
-            echo '<div class="span6" id="text-excerpt">';
+            echo '<div class="span6" >';
             }else{
-          echo '<div class="span8" id="text-excerpt">';
+          echo '<div class="span8" >';
           }
       ?>
       <!-- content -->
-       <p><?php the_excerpt()?> <a href= "<?php the_permalink(); ?>" > Mehr? </a></p>
+       <?php the_excerpt()?><a href= "<?php the_permalink(); ?>" > Mehr? </a>
       <p><em><?php the_time('l, F jS, Y'); ?></em></p> 
     </div> <!-- close div span 6 id text-excerpt -->
     </div> <!-- close row inner -->

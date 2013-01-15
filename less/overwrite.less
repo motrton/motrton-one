@@ -58,6 +58,26 @@ This is where im working ;ftb
  */
 
 
+/**
+ *
+ ul li{
+    display:inline;
+    position:relative;
+}
+ul li ul{
+    display:inline;
+    position:absolute;
+    top:20px;
+    left:0;
+    white-space:nowrap;
+}
+ul li li{
+    display:inline;
+}
+
+
+ */
+
 ul.sf-menu {
  a {
   border-left:  0px ;
@@ -74,14 +94,24 @@ a:visited  { /* visited pseudo selector so IE6 applies text colour*/
   width: 100%;
   // this controls the menu top width
   li{
+    display:inline;
+    position:relative;
    // width: (100%)/5;
-    text-align: center;
+    // text-align: center;
    ul.children{
     
      text-align: center;
      font-size: 80%;
+     display:inline;
+    position:absolute;
+    // top:20px;
+    left:0;
+    white-space:nowrap;
    }
+   li{
+        display:inline;
 
+   }
 
   }
   // li:last-of-type{
@@ -177,7 +207,7 @@ ul.sf-navbar li li li.sfHover,
  * home.php
  */
 
-#image-container-inner-home{
+.image-container-inner-home{
       padding-top: 1em;
 
   img{

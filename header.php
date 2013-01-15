@@ -25,7 +25,6 @@
   <body>
 <header>
     <div class="container">
-
       <div class="row">
         <div class="span11">
           <div class="themenu"> 
@@ -67,56 +66,7 @@ http://wordpress.org/support/topic/adding-the-searchform-to-the-navbar
 </div>
 </div>
 </div> <!-- close row -->
-      <!-- <div class="row"> -->
-        <!-- <div class="span11"> -->
-          <!-- <div class="themenu">  -->
- <?php 
-//  $options = get_option('motrton-one_options');
-
-// // this would list pages
-//   $argspagemenu = array(
-//     'sort_column' => 'menu_order, post_title',
-//     'menu_class'  => 'menu-inner',
-//     'include'     => '',
-//     'exclude'     => $options['excludepages'],
-//     'echo'        => true,
-//     'show_home'   => false,
-//     'link_before' => '',
-//     'link_after'  => '' );
-//  wp_page_menu( $argspagemenu );
-?>
-
-<!-- </div> -->
-<!-- </div> -->
-<!-- </div> -->
-<!--
-
- <?php 
-   //      $defaults = array(
-   //              'theme_location'  => 'primary',
-   //              'menu'            => 'custom_menu',
-   //              'container'       => 'div',
-   //              'container_class' => 'themenu',
-   //              'container_id'    => '',
-   //              'menu_class'      => 'sf-menu sf-navbar',
-   //              'menu_id'         => '',
-   //              'echo'            => 1,
-   //              'fallback_cb'     => 'wp_page_menu',
-   //              'before'          => '',
-   //              'after'           => '',
-   //              'link_before'     => '',
-   //              'link_after'      => '',
-   //              'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-   //              'depth'           => 2,
-   //              'walker'          => ''
-   //              );
-
-   // wp_nav_menu( $defaults );
- ?>
-   
--->
-
+</div> <!-- close container -->
 
 </header>
 <hr>
-</div> <!-- close container -->
