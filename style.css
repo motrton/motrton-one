@@ -6329,14 +6329,6 @@ p.post-subline {
   border-bottom: 1px solid #31af4e;
   box-shadow: inset 0 1px 0 white;
 }
-#submenu-border-top {
-  width: 100%;
-  height: 36px;
-  position: fixed;
-  top: 10px;
-  left: 0;
-  z-index: 2147483646;
-}
 /**
  * This is for the under construction page
  * 

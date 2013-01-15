@@ -130,5 +130,5 @@ http://wordpress.org/support/topic/adding-the-searchform-to-the-navbar
 
 </header>
  <!-- <hr class="hidden-phone"> -->
-  <div class="hidden-phone custom-border" id="submenu-border-top"></div>
+  <!-- <div class="hidden-phone custom-border" id="submenu-border-top"></div> -->
  <div class="hidden-phone custom-border"></div>
