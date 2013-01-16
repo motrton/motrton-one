@@ -83,8 +83,7 @@ $args = array(
         <div class="span11">
           <div class="themenu"> 
 
-
-<ul class="sf-menu sf-navbar hidden-phone">
+<ul class="sf-menu sf-navbar hidden-phone" id="desktop-navbar">
 <!-- wp_list_pages start -->
         <?php
         
@@ -122,13 +121,16 @@ http://wordpress.org/support/topic/adding-the-searchform-to-the-navbar
 </ul>
 </div>
 </div>
- <div class="search pull-right" id="desktop-search"><?php get_search_form(); ?></div> 
 
 </div> <!-- close row -->
 
 </div> <!-- close container -->
 
 </header>
+ <div class="hidden-phone custom-border" id="submenu-border-top"></div>
+ <div id="desktop-search-container">
+  <div class="search pull-right hidden-phone" id="desktop-search"><?php get_search_form(); ?></div> 
+ </div>
  <!-- <hr class="hidden-phone"> -->
   <!-- <div class="hidden-phone custom-border" id="submenu-border-top"></div> -->
  <div class="hidden-phone custom-border"></div>

@@ -6313,6 +6313,12 @@ p.post-subline {
 #postnav .alignright {
   float: right;
 }
+#desktop-navbar {
+  border-width: 1px;
+  border-bottom-style: solid;
+  border-bottom: 1px solid #31af4e;
+  box-shadow: inset 0 1px 0 white;
+}
 #desktop-search {
   background: transparent!;
   position: absolute;
@@ -6328,6 +6334,12 @@ p.post-subline {
   border-bottom-style: solid;
   border-bottom: 1px solid #31af4e;
   box-shadow: inset 0 1px 0 white;
+}
+#submenu-border-top {
+  position: absolute;
+  top: 23px;
+  float: right;
+  right: 10%;
 }
 /**
  * This is for the under construction page

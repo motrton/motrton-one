@@ -48,6 +48,13 @@ function my_styles() {
 
     wp_register_style( 'overwrite', get_template_directory_uri() . '/css/overwrite.css' );
     wp_enqueue_style( 'overwrite' );
+
+    wp_register_style( 'oo-naok-style', get_template_directory_uri() . '/css/oo-naok.css' );
+    wp_enqueue_style( 'oo-naok-style' );
+
+    wp_register_style( 'bs-responsive', get_template_directory_uri() . '/bootstrap/css/bootstrap-responsive.css' );
+    wp_enqueue_style( 'bs-responsive' );
+
 }
 
 /**
