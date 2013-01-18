@@ -2,10 +2,48 @@
 
 /**
  * Bootstrap scripts
- * CSS gets inclued directly in style.css
+ * Bootstrap CSS gets inclued directly in style.css
  */
 
+// include the theme options
+require_once ( get_template_directory() . '/theme-options.php' );
+// Register Custom Gallery
+require_once('wp_bootstrap_gallery.php');
+// Register Custom Navigation Walker
+require_once('twitter_bootstrap_nav_walker.php');
+
+
+/**
+ * ADD THE SCRIPTS
+ *
+ *
+ */
+// jquery
 add_action( 'wp_enqueue_scripts', 'wpbootstrap_scripts_with_jquery' );
+//superfish scripts
+add_action('wp_enqueue_scripts','superfish_script_with_jquery');
+// add main JS
+add_action('wp_enqueue_scripts','call_main_js');
+/**
+ * ADD THE CSS
+ */
+add_action('init', 'my_styles');
+
+// register sidebar
+add_action( 'widgets_init', 'my_register_sidebars' );
+// custom filter around content to get the link icon
+add_filter( 'the_content', 'mytheme_content_ad' );
+// add my personal debugger
+add_action('wp_footer', 'show_template');
+
+
+
+
+
+/**
+ * This function registers the bootstrap js files
+ * 
+ */
 function wpbootstrap_scripts_with_jquery(){
     // Register the script like this for a theme:
     wp_register_script( 'bootstrap-script', get_template_directory_uri() . '/bootstrap/js/bootstrap.js', array( 'jquery' ) );
@@ -14,28 +52,30 @@ function wpbootstrap_scripts_with_jquery(){
     }
 
 /**
- * superfish scripts and CSS
+ * This adds the superfish script and the hoverintent to create the menu
+ *
  */
-
-add_action('wp_enqueue_scripts','superfish_script_with_jquery');
 function superfish_script_with_jquery(){
-//     wp_enqueue_script(
-//       'Name of the script, lowercase string',
-//       'path to the file .js',
-//       'array of scripts it depends on',
-//       'version of  the script',
-//       'boolean value to select whether you want to print the script in the footer or in the header'
-// );
-// 
 wp_register_script( 'hoverintent-script', get_template_directory_uri() . '/js/hoverIntent.js', array( 'jquery' ) );
 wp_enqueue_script( 'hoverintent-script' );
 wp_register_script( 'superfish-script', get_template_directory_uri() . '/js/superfish.js', array( 'jquery' ) );
 wp_enqueue_script( 'superfish-script' );
 
-
+}
+/**
+ * This calls my personal JS
+ * 
+ */
+function call_main_js(){
+wp_register_script( 'main-script', get_template_directory_uri() . '/js/main.js', array( 'jquery' ) );
+wp_enqueue_script( 'main-script' );
 }
 
-add_action('init', 'my_styles');
+
+/**
+ * all the css files
+ * 
+ */
 function my_styles() {
     wp_register_style( 'superfish', get_template_directory_uri() . '/css/custom-superfish.css' );
     wp_enqueue_style( 'superfish' );
@@ -57,34 +97,17 @@ function my_styles() {
 
 }
 
-/**
- * Call Main JS
- */
-
-add_action('wp_enqueue_scripts','call_main_js');
-function call_main_js(){
-// wp_register_script( 'justtext-script', get_template_directory_uri() . '/js/justtext.js', array( 'jquery' ) );
-//  wp_enqueue_script( 'justtext-script' );
-
-wp_register_script( 'main-script', get_template_directory_uri() . '/js/main.js', array( 'jquery' ) );
- wp_enqueue_script( 'main-script' );
-
-
-
-}
-
-
 // // custom menu
 // add_action('init','register_custom_menu');
 // function register_custom_menu(){
 // register_nav_menu('primary',__('Custom Menu'));
 // }
 
-
-// sidebar
-add_action( 'widgets_init', 'my_register_sidebars' );
+/**
+ * [my_register_sidebars description]
+ * @return [type] [description]
+ */
 function my_register_sidebars() {
-
 	register_sidebar(
         array(
         'name' => 'primary',
@@ -107,16 +130,17 @@ function my_register_sidebars() {
 
 //Filter content to add specific div around it
 // needed to filter only contents posts
+/**
+ * [mytheme_content_ad description]
+ * @param  [type] $content [description]
+ * @return [type]          [description]
+ */
 function mytheme_content_ad( $content ) {
     $prefix = '<div class="linked">';
-    
     $suffix = '</div>';
-
     $filteredcontent = $prefix . $content .$suffix;
-
     return $filteredcontent;
 }
-add_filter( 'the_content', 'mytheme_content_ad' );
 
 
 // Add ID and CLASS attributes to the first <ul> occurence in wp_page_menu
@@ -127,33 +151,16 @@ add_filter( 'the_content', 'mytheme_content_ad' );
 
 
 
-// include the theme options
-require_once ( get_template_directory() . '/theme-options.php' );
-
-
 
 // DEVELOPMENT TOOL
-
 // For debugging - show template file
-add_action('wp_footer', 'show_template');
 function show_template() {
 
-//    <div>
-  //<p>
-    //DEVELOPMENT only <?php
-    //echo $post->ID ." page ID";
-    // 
-  //</p>
-
-//</div>
-
     $options = get_option('motrton-one_options');
-    
-
-   global $template;
+    global $template;
    if($options['debugger'] == true){
     $file = substr( strrchr( $template , "/" ), 1) ;
-    $heading = "<div style='padding-left:10%;'><h5> DEBUGINFO  </h5> deactivate from theme options<p>";
+    $heading = "<div style='padding-left:10%;' id='debuginfo'><h5> DEBUGINFO  </h5> deactivate from theme options<p>";
     $str1 = "Used template file --> <strong>" . $file . "</strong><br>";
     $str2 = "Current ID -->  <strong>" . get_the_ID() . "</strong><br>";
     $str3 = "Pages to Exclude --> <strong>" . $options['excludepages'] . "</strong><br>";

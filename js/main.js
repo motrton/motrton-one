@@ -25,11 +25,9 @@
 
 jQuery(document).ready(function($){
 
-
-    /**
-    * using superfish plugin
-    */
-
+/**
+* using superfish plugin
+*/
 var width = $(window).width();
 if (width >=480) {
     $("ul.sf-menu,menu").superfish({
@@ -60,15 +58,51 @@ if (width >=480) {
  */
 
 
+
+
+// make the dropdown phone only
+
+if($('.navbar, .navbar-fixed-top, .visible-phone').css('display') !== 'none !important'){
 $('.nav').children('li').addClass('dropdown');
 $('ul.nav > li.dropdown').children('a').addClass('dropdown-toggle');
-
 $('.dropdown-toggle').attr('data-toggle','dropdown');
-$('a.dropdown-toggle').append('  <b class="caret"></b>');
+$('a.dropdown-toggle').append(' <b class="caret"></b>');
 $('li.dropdown > ul.children').addClass('dropdown-menu');
+
+// remove the caret on the blog tab
+$('ul.nav > li').last().children('a').children('b').removeClass('caret');
+
+// we have to open the current item
+$('li.current_page_item').addClass('open');
+
+$('li.dropdown > a.dropdown-toggle').click(
+    function(){
+        var a_href = $(this).attr('href');
+        window.location = a_href;
+        }
+    );
+}
+
+
+// var text = $('li.dropdown > a.dropdown-toggle').each(
+//     function (index) {
+//         var a_href = $(this).attr('href');
+//         var a_text = $(this).text();
+
+//         $(this).text('');
+//         $(this).parent().prepend(a_text);
+//         }
+//     );
+
+
 // $('.dropdown-menu').removeClass('children');
 // $('ul.dropdown-menu > li').removeClass();
 //
+
+// get previous url
+var cameFrom =  document.referrer;
+$('div#debuginfo').append('This is where you came from' + cameFrom+ '');
+
 
 
 });

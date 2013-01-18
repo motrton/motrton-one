@@ -24,6 +24,9 @@
   </head>
   <body>
 <header>
+
+<!-- START MOBILE NAVBAR PAGES -->
+
 <!-- Lets try to get a responsive menu for phones add  visible-phone -->
 <div class="navbar navbar-fixed-top visible-phone">  
   <div class="navbar-inner">  
@@ -66,7 +69,6 @@ $args = array(
 );
  wp_list_pages( $args );
 
-
 ?>
 <!-- wp_list_pages start -->
 
@@ -77,6 +79,9 @@ $args = array(
     </div>  <!-- close container -->
   </div>  <!-- close navbar inner -->
 </div> <!-- clse navbar fixed top -->
+
+<!-- END MOBILE NAVBAR PAGES -->
+
   <div class="nav pull-right visible-phone" id="phone-search"><?php get_search_form(); ?></div>
     <div class="container hidden-phone">
       <div class="row">
