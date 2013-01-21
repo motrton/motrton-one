@@ -23,6 +23,7 @@
 
 
 
+
 jQuery(document).ready(function($){
 
 /**
@@ -57,8 +58,14 @@ if (width >=480) {
  * END OF LINK ADDING
  */
 
+/**
+ * Add better letterpress to all H1
+ */
 
-
+$('h1, h2, h3, h4').addClass('depth');
+$('h1, h2, h3').attr('title',function(){
+    return $(this).text();
+});
 
 // make the dropdown phone only
 

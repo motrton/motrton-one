@@ -30,7 +30,7 @@
             // http://wordpress.org/support/topic/getting-thumbnails-of-images-attached-to-a-post  
             $images =& get_children( 'post_type=attachment&post_mime_type=image&post_parent=' . $post->ID );
             //foreach( $images as $imageID => $imagePost ){
-              echo '<div class="span2 image-container-inner-home">';
+              echo '<div class="span2 image-container-inner-home animated fadeIn">';
               // echo wp_get_attachment_image($imageID , 'thumbnail', false);
               // 
               $firstImageSrc = wp_get_attachment_image_src(

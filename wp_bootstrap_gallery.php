@@ -176,7 +176,7 @@ function wp_bootstrap_gallery_add_attachment_class($html){
     $html = preg_replace('/class=".*?"/', '', $html);
 
     // Add thumbnail class to link
-    $html = str_replace('<a','<a class="thumbnail"',$html);
+    $html = str_replace('<a','<a class="thumbnail animated fadeIn"',$html);
     
     return $html;
 }
