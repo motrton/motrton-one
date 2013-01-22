@@ -58,14 +58,38 @@ if (width >=480) {
  * END OF LINK ADDING
  */
 
+// This would be jQuery autocomplete
+// searchterms
+var searchtermstring = $('#searchterms').text();
+
+// var searchterms = $.parseJSON("'" + searchtermstring + "'");
+// var terms = searchterms.list;
+
+// var availableTags = ["Batman", "Spiderman", "Hulk"];
+
+var terms = searchtermstring.split(',');
+terms.pop();
+ $( "input#s" ).autocomplete({
+     source: terms,
+     minLength: 0,
+     autoFocus: true,
+     delay: 10
+
+});
+
+
+$("div#debuginfo").append("<p>Preset searchterms added with js: -->" + terms + " as "+ terms.constructor.name+ "</p>");
+
+
+
 /**
  * Add better letterpress to all H1
  */
 
-$('h1, h2, h3, h4').addClass('depth');
-$('h1, h2, h3').attr('title',function(){
-    return $(this).text();
-});
+// $('h1, h2, h3, h4').addClass('depth');
+// $('h1, h2, h3').attr('title',function(){
+//     return $(this).text();
+// });
 
 // make the dropdown phone only
 

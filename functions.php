@@ -18,8 +18,17 @@ require_once('twitter_bootstrap_nav_walker.php');
  *
  *
  */
-// jquery
+// jquery ui
+
+
+// wp_enqueue_script('jquery-ui-autocomplete', '', array('jquery-ui-widget', 'jquery-ui-position'), '1.8.6');
+
+// bootstrap
 add_action( 'wp_enqueue_scripts', 'wpbootstrap_scripts_with_jquery' );
+
+//jq ui
+add_action( 'wp_enqueue_scripts', 'jqueryui_scripts_with_jquery' );
+
 //superfish scripts
 add_action('wp_enqueue_scripts','superfish_script_with_jquery');
 // add main JS
@@ -39,6 +48,17 @@ add_action('wp_footer', 'show_template');
 
 
 
+
+/**
+ * This function registers the jqui js files
+ * 
+ */
+function jqueryui_scripts_with_jquery(){
+    // Register the script like this for a theme:
+    wp_register_script( 'jq-ui-script', get_template_directory_uri() . '/js/jquery-ui-1.10.0.custom.min.js', array( 'jquery' ) );
+        // For either a plugin or a theme, you can then enqueue the script:
+    wp_enqueue_script( 'jq-ui-script' );
+    }
 
 /**
  * This function registers the bootstrap js files
@@ -77,6 +97,7 @@ wp_enqueue_script( 'main-script' );
  * 
  */
 function my_styles() {
+
     wp_register_style( 'superfish', get_template_directory_uri() . '/css/custom-superfish.css' );
     wp_enqueue_style( 'superfish' );
 
@@ -92,10 +113,65 @@ function my_styles() {
     wp_register_style( 'oo-naok-style', get_template_directory_uri() . '/css/oo-naok.css' );
     wp_enqueue_style( 'oo-naok-style' );
 
+    wp_register_style( 'jqui', get_template_directory_uri() . '/css/jquery-ui-1.10.0.custom.css' );
+    wp_enqueue_style( 'jqui' );
+
     wp_register_style( 'bs-responsive', get_template_directory_uri() . '/bootstrap/css/bootstrap-responsive.css' );
     wp_enqueue_style( 'bs-responsive' );
 
 }
+
+
+// add_action( 'init', 'myprefix_autocomplete_init' );
+
+
+// function myprefix_autocomplete_init() {
+//     // Register our jQuery UI style and our custom javascript file
+//     wp_register_style('myprefix-jquery-ui','http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css');
+//     wp_register_script( 'my_acsearch', get_template_directory_uri() . '/js/myacsearch.js', array('jquery','jquery-ui-autocomplete'),null,true);
+// wp_localize_script( 'my_acsearch', 'MyAcSearch', array('url' => admin_url( 'admin-ajax.php' )));
+//     // Function to fire whenever search form is displayed
+//     add_action( 'get_search_form', 'myprefix_autocomplete_search_form' );
+
+//     // Functions to deal with the AJAX request - one for logged in users, the other for non-logged in users.
+//     add_action( 'wp_ajax_myprefix_autocompletesearch', 'myprefix_autocomplete_suggestions' );
+//     add_action( 'wp_ajax_nopriv_myprefix_autocompletesearch', 'myprefix_autocomplete_suggestions' );
+// }
+
+// function myprefix_autocomplete_search_form(){  
+//     wp_enqueue_script( 'my_acsearch' );  
+//     wp_enqueue_style( 'myprefix-jquery-ui' );  
+// } 
+
+// function myprefix_autocomplete_suggestions(){  
+//     // Query for suggestions  
+//     $posts = get_posts( array(  
+//         's' =>$_REQUEST['term'],  
+//     ) );  
+  
+//     // Initialise suggestions array  
+//     $suggestions=array();  
+  
+//     global $post;  
+//     foreach ($posts as $post): setup_postdata($post);  
+//         // Initialise suggestion array  
+//         $suggestion = array();  
+//         $suggestion['label'] = esc_html($post->post_title);  
+//         $suggestion['link'] = get_permalink();  
+  
+//         // Add suggestion to suggestions array  
+//         $suggestions[]= $suggestion;  
+//     endforeach;  
+  
+//     // JSON encode and echo  
+//     $response = $_GET["callback"] . "(" . json_encode($suggestions) . ")";  
+//     echo $response;  
+  
+//     // Don't forget to exit!  
+//     exit;  
+// }  
+
+
 
 // // custom menu
 // add_action('init','register_custom_menu');

@@ -8,12 +8,44 @@
  * @since motrton-one 0.1
  */
 ?>
-    <form method="get" id="searchform" autocomplete="on" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-        <label for="s" class="assistive-text"><?php _e( '', 'motrton-one' ); ?></label>
-        <input type="text" class="field" name="s" id="s" placeholder="<?php esc_attr_e( 'Suche + Enter', 'motrton-one' ); ?>" />
-<!--         <input type="submit" class="submit" name="submit" id="searchsubmit" value="<?php esc_attr_e( 'Suche + Enter', 'motrton-one' ); ?>" />
- -->    </form>
 
+ <div class="ui-widget">
+
+<form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">  
+    <label for="s"><?php _e( '', 'motrton-one' ); ?></label>  
+    <input type="text" name="s" id="s" placeholder="<?php esc_attr_e( 'Begirff oder &darr; plus &crarr;', 'motrton-one' ); ?>" list="suggestions" />  
+<?php
+    // add a datalist to the inputfield
+    // as seen here
+    // http://wet-boew.github.com/wet-boew/demos/datalist/datalist-eng.html?codekitCB=380560437.939341
+    // 
+    $options = get_option('motrton-one_options');
+    $termsstring = $options['searchterms'];
+    $terms = explode(",", $termsstring);
+    echo "<datalist id=\"suggestions\">" . "\n";
+    echo "<!--[if lte IE 9]><select><![endif]-->" . "\n";
+
+    foreach($terms as $value) {
+    // $str = preg_replace('/\s*/||/\s*$/','',$value);
+     echo  "<option label=\"\" value=\"". trim($value) . "\"></option>" . "\n";
+    }
+    echo "<!--[if lte IE 9]></select><![endif]-->" . "\n";
+    echo "</datalist>" . "\n";
+
+
+
+    // this writes the data for autocomplete jquery ui 
+    echo "<div id=\"searchterms\" style=\"visibility: hidden;\">";
+    foreach($terms as $value) {
+        echo trim($value) . ",";
+    }
+    echo "</div>" . "\n";
+    // echo '<div id="searchterms" style="visibility: hidden;">'. json_encode($terms) .'}</div>'
+
+ ?>
+</form>  
+
+  </div>
 <!-- <form class="navbar-search pull-left">  
   <input type="text" class="search-query" placeholder="Search">  
 </form>   -->

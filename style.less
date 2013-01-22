@@ -26,12 +26,14 @@ This simple theme was built using the example Bootstrap theme "Basic marketing s
  * These are the basic styles that get loaded first
  */
 
+@headlineColor:#333e34;
 
 body { 
      // padding-top: 60px;
      padding-bottom: 40px;
     font-family: 'Source Sans Pro', sans-serif;
     // font-size: 1.2em;
+    background-image :url('images/pw_maze_white.png');
     p{
       font-size: 1.2em;
     }
@@ -42,6 +44,10 @@ body {
     }
 }
 
+h1,h2,h3,h4,h5,h6,{
+  color:@headlineColor;
+  .letterPressShadow(@headlineColor);
+}
 /** LETTER PRESS START **/
 .depth {
     display: block;
@@ -60,7 +66,9 @@ body {
 
 
 
-    p.post-subline{
+
+
+p.post-subline{
       font-size: 0.9em;
   }
 #postnav{

@@ -31,19 +31,6 @@
 <div class="navbar navbar-fixed-top visible-phone">  
   <div class="navbar-inner">  
     <div class="container">  
-<!-- <ul class="nav">
-  <li class="dropdown">  
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">  
-          Services  
-          <b class="caret"></b>  
-    </a>  
-    <ul class="dropdown-menu">  
-     <li><a href="#">Web Design</a></li>  
-    <li><a href="#">Web development</a></li>  
-    <li><a href="#">Wordpress Theme development</a></li>  
-    </ul>
-  </li>
-</ul> -->
 <ul class="nav">
   <!-- wp_list_pages start -->
         <?php
@@ -133,8 +120,17 @@ http://wordpress.org/support/topic/adding-the-searchform-to-the-navbar
 
 </header>
  <div class="hidden-phone custom-border" id="submenu-border-top"></div>
+          <row class="span2 offset10">
+                
+            </row>
  <div id="desktop-search-container">
-  <div class="search pull-right hidden-phone" id="desktop-search"><?php get_search_form(); ?></div> 
+
+  <div class="search pull-right hidden-phone" id="desktop-search">
+<?php 
+get_search_form();
+ ?>
+
+  </div>
  </div>
  <!-- <hr class="hidden-phone"> -->
   <!-- <div class="hidden-phone custom-border" id="submenu-border-top"></div> -->
