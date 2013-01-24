@@ -28,13 +28,20 @@
 @import url('custom-mixins.less');
 @import url('elements.less');
 
+//------------------------------------------------------------------------------
+//FROM HERE ON ITS STYLE CSS before got included
+//
+// @import url('../bootstrap/less/custom-bs-variables.less');
+// @import url('custom-mixins.less');
+// @import url('elements.less');
+
+
 /*
 This is where im working ;ftb
  */
 /**
  * overwrite superfish
  */
-
 
 ul.sf-menu {
  a {
@@ -95,8 +102,9 @@ a:visited  { /* visited pseudo selector so IE6 applies text colour*/
 
 
 
+
 ul.sf-menu.sf-navbar{
-  .rounded(0px);
+  .e_rounded(0px);
   padding-bottom: 0px;
 
   // .simple-border-bottom(@linkColor);
@@ -108,31 +116,26 @@ ul.sf-menu.sf-navbar{
 
 }
 
+.ui-widget{
+  form#searchform{
+    input.ui-autocomplete-input{
+         width:inherit;
+        height:inherit;
+    }
+  }
+
+}
+
+
 form:focus,input:focus {
-.rounded(0px);
+// .rounded(0px);
 border-color:@linkColor !important;
 
 }
 
 
-.foot{
-
-    font-size: 70%;
-}
 
 
-/**
- * home.php
- */
-
-.image-container-inner-home{
-      padding-top: 1em;
-
-  img{
-    .rounded(@borderRadiusLarge);
-
-  }
-}
 // @import url('../bootstrap/less/bootstrap-responsive.less');
 
 // nav > ul > li > ul {display:none}

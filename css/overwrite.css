@@ -4,6 +4,5 @@ ul.sf-menu li{display:inline;position:relative;}ul.sf-menu li ul.children{text-a
 ul.sf-menu li li{display:inline;}
 .themenu{font-size:1.5em;}.themenu :first-child{text-align:left;}
 .themenu ul.sf-menu.sf-navbar{-webkit-border-radius:0px;-moz-border-radius:0px;border-radius:0px;-moz-background-clip:padding-box;-webkit-background-clip:padding-box;background-clip:padding-box;padding-bottom:0px;}
-form:focus,input:focus{-webkit-border-radius:0px;-moz-border-radius:0px;border-radius:0px;-moz-background-clip:padding-box;-webkit-background-clip:padding-box;background-clip:padding-box;border-color:#607a65 !important;}
-.foot{font-size:70%;}
-.image-container-inner-home{padding-top:1em;}.image-container-inner-home img{-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-moz-background-clip:padding-box;-webkit-background-clip:padding-box;background-clip:padding-box;}
+.ui-widget form#searchform input.ui-autocomplete-input{width:inherit;height:inherit;}
+form:focus,input:focus{border-color:#607a65 !important;}

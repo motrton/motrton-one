@@ -1,6 +1,5 @@
-<hr>
-<div class="container">
     <footer class="foot">
+<div class="container">
         <div class="row">
             <div class="span12">
                 <p>
@@ -28,8 +27,8 @@
                 </p>
             </div> <!-- close span12 -->
         </div> <!-- close row -->
-    </footer>
 </div><!-- /container -->
+</footer>
 <?php wp_footer(); ?>
 </body>
-<html>
+</html>

@@ -21,14 +21,44 @@
 
 // see also http://www.opensource.org/licenses/mit-license.php
 
+// function autocomplete ($) {
+
+// // This would be jQuery autocomplete
+// // searchterms
+// var searchtermstring = $('#searchterms').text();
+
+// // var searchterms = $.parseJSON("'" + searchtermstring + "'");
+// // var terms = searchterms.list;
+
+// // var availableTags = ["Batman", "Spiderman", "Hulk"];
+
+// var terms = searchtermstring.split(',');
+// terms.pop();
+//  $( "input#s" ).autocomplete({
+//      source: terms,
+//      minLength: 0,
+//      autoFocus: true,
+//      delay: 10
+
+// });
+
+// $("div#debuginfo").append("<p>Preset searchterms added with js: -->" + terms + " as "+ terms.constructor.name+ "</p>");
+
+// }
 
 
+// function suggestions ($) {
+//     var acs_action = 'myprefix_autocompletesearch';
+//     // var res =  $.getJSON(MyAcSearch.url+'?callback=?&action='+acs_action);
 
-jQuery(document).ready(function($){
+//    $('input#s').suggest("<?php echo get_bloginfo('wpurl'); ?>/wp-admin/admin-ajax.php?callback=?&action=" +acs_action, {multiple:false});
+
+// }
 
 /**
 * using superfish plugin
 */
+function superfish ($) {
 var width = $(window).width();
 if (width >=480) {
     $("ul.sf-menu,menu").superfish({
@@ -38,13 +68,13 @@ if (width >=480) {
         dropShadows: false// disable drop shadows
     });
 }
-/**
- * END SUPERFISH
- */
+
+}
 
 /**
  * ADDING <i> to every link in specific container
  */
+function linkIcons ($) {
 
 // if($('a').attr('title')==='link'){
 // $('a[title="link"]').append(' <i class="icon-hand-right"></i>');
@@ -54,44 +84,24 @@ if (width >=480) {
 // a filter
  $('.linked').find('a').append(' <i class="icon-hand-right"></i>');
     // }
-/**
- * END OF LINK ADDING
- */
-
-// This would be jQuery autocomplete
-// searchterms
-var searchtermstring = $('#searchterms').text();
-
-// var searchterms = $.parseJSON("'" + searchtermstring + "'");
-// var terms = searchterms.list;
-
-// var availableTags = ["Batman", "Spiderman", "Hulk"];
-
-var terms = searchtermstring.split(',');
-terms.pop();
- $( "input#s" ).autocomplete({
-     source: terms,
-     minLength: 0,
-     autoFocus: true,
-     delay: 10
-
-});
-
-
-$("div#debuginfo").append("<p>Preset searchterms added with js: -->" + terms + " as "+ terms.constructor.name+ "</p>");
-
+}
 
 
 /**
- * Add better letterpress to all H1
+ * Add better letterpress to elements
+ * Looks better nut links get unclickable
+ *
  */
-
+// function depthLetterpress ($) {
 // $('h1, h2, h3, h4').addClass('depth');
 // $('h1, h2, h3').attr('title',function(){
 //     return $(this).text();
 // });
-
+// }
+//
 // make the dropdown phone only
+function mobileDropdown ($) {
+
 
 if($('.navbar, .navbar-fixed-top, .visible-phone').css('display') !== 'none !important'){
 $('.nav').children('li').addClass('dropdown');
@@ -114,7 +124,6 @@ $('li.dropdown > a.dropdown-toggle').click(
     );
 }
 
-
 // var text = $('li.dropdown > a.dropdown-toggle').each(
 //     function (index) {
 //         var a_href = $(this).attr('href');
@@ -129,11 +138,74 @@ $('li.dropdown > a.dropdown-toggle').click(
 // $('.dropdown-menu').removeClass('children');
 // $('ul.dropdown-menu > li').removeClass();
 //
+}
 
+function helper ($) {
 // get previous url
 var cameFrom =  document.referrer;
-$('div#debuginfo').append('This is where you came from' + cameFrom+ '');
+$('div#debuginfo').append('This is where you came from' + cameFrom+ '<br>');
+var res = "<?php echo get_bloginfo('wpurl'); ?>/wp-admin/admin-ajax.php?action=search";
+$('div#debuginfo').append('<br>' + res);
+}
 
 
 
+/**
+ * This calls all the functions
+ * superfish($);
+ * linkIcons($);
+ * autocomplete($);
+ * mobileDropdown($);
+ * helper($)
+ */
+
+
+jQuery(document).ready(function($){
+superfish($);
+linkIcons($);
+
+
+// var se_ajax_url = "<?php echo admin_url('admin-ajax.php'); ?>";
+// $('input#s').suggest(se_ajax_url + '?action=se_lookup');
+
+// $('div#debuginfo').append(se_ajax_url + '?action=se_lookup');
+
+// suggestions($);
+//
+// var haystack = ["ActionScript", "AppleScript", "Asp", "BASIC"];
+// ajaxurl + "?action=search", { delay: 500, minchars: 2}
+
+// $('input#s').suggest("<?php echo get_bloginfo('wpurl'); ?>/wp-admin/admin-ajax.php?action=search", {
+//   suggestionColor   : '#cccccc',
+//   moreIndicatorClass: 'suggest-more',
+//   moreIndicatorText : '&hellip;'
+//  });
+
+
+
+
+// This would be jQuery autocomplete
+// searchterms
+// var searchtermstring = $('#searchterms').text();
+
+// // var searchterms = $.parseJSON("'" + searchtermstring + "'");
+// // var terms = searchterms.list;
+
+// // var availableTags = ["Batman", "Spiderman", "Hulk"];
+
+// var terms = searchtermstring.split(',');
+// terms.pop();
+//  $( "input#s" ).autocomplete({
+//      source: terms,
+//      minLength: 0,
+//      autoFocus: true,
+//      delay: 10
+
+// });
+
+// $("div#debuginfo").append("<p>Preset searchterms added with js: -->" + terms + " as "+ terms.constructor.name+ "</p>");
+// // autocomplete($);
+// // depthLetterpress($);
+mobileDropdown($);
+helper($);
 });

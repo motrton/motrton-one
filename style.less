@@ -16,7 +16,6 @@ This simple theme was built using the example Bootstrap theme "Basic marketing s
 
 @import url('bootstrap/less/bootstrap.less');
 @import url('bootstrap/less/custom-bs-variables.less');
-
 @import url('less/custom-mixins.less');
 @import url('less/elements.less');
 
@@ -80,6 +79,26 @@ p.post-subline{
   }
 }
 
+
+.foot{
+
+    font-size: 70%;
+}
+
+
+/**
+ * home.php
+ */
+
+.image-container-inner-home{
+      padding-top: 1em;
+
+  img{
+    .e_rounded(@borderRadiusLarge);
+
+  }
+}
+
 // .border{
 //     border-top: 1px solid rgba(0, 0, 0, 0.2);
 //     border-bottom: 1px solid rgba(255, 255, 255, 0.9);
@@ -88,19 +107,16 @@ p.post-subline{
 // }
 
 
-#desktop-search-container{
-
-}
 #desktop-navbar{
   .simple-border-bottom(@linkColor);
 }
 
 #desktop-search{
-background: transparent!;
-position:absolute;
-float:right;
-top:23px +  @inputHeight;
- right:10%;
+// background: transparent!;
+ position:absolute;
+ float:right;
+ top:23px ;
+   right:50px;
 // .simple-border-top(@linkColor);
 // .simple-border-bottom(@linkColor);
 

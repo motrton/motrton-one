@@ -24,7 +24,6 @@
   </head>
   <body>
 <header>
-
 <!-- START MOBILE NAVBAR PAGES -->
 
 <!-- Lets try to get a responsive menu for phones add  visible-phone -->
@@ -72,7 +71,7 @@ $args = array(
   <div class="nav pull-right visible-phone" id="phone-search"><?php get_search_form(); ?></div>
     <div class="container hidden-phone">
       <div class="row">
-        <div class="span11">
+        <div class="span10">
           <div class="themenu"> 
 
 <ul class="sf-menu sf-navbar hidden-phone" id="desktop-navbar">
@@ -110,28 +109,33 @@ Searchform
 found here:
 http://wordpress.org/support/topic/adding-the-searchform-to-the-navbar
 -->
+
 </ul>
 </div>
 </div>
-
+  <!-- <div class="span2"> -->
+   <!-- <div id="desktop-search-container"> -->
+  <!-- <div class="hidden-phone" id="desktop-search"> -->
+<?php 
+  // get_search_form();
+ ?>
+  <!-- </div> -->
+<!--  </div> -->
+<!-- </div> -->
 </div> <!-- close row -->
 
 </div> <!-- close container -->
-
+  <div class="hidden-phone pull-right" id="desktop-search">
+<?php 
+  get_search_form();
+ ?>
+  </div>
 </header>
  <div class="hidden-phone custom-border" id="submenu-border-top"></div>
-          <row class="span2 offset10">
+          <div class="span2">
                 
-            </row>
- <div id="desktop-search-container">
+            </div>
 
-  <div class="search pull-right hidden-phone" id="desktop-search">
-<?php 
-get_search_form();
- ?>
-
-  </div>
- </div>
  <!-- <hr class="hidden-phone"> -->
   <!-- <div class="hidden-phone custom-border" id="submenu-border-top"></div> -->
  <div class="hidden-phone custom-border"></div>
