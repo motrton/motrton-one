@@ -12,82 +12,63 @@ require_once('wp_bootstrap_gallery.php');
 // Register Custom Navigation Walker
 require_once('twitter_bootstrap_nav_walker.php');
 
-require_once('WordPress-jQuery-Autocomplete');
+// require_once('WordPress-jQuery-Autocomplete.php');
 /**
  * ADD THE SCRIPTS
  *
  *
  */
 
+// function se_lookup() {
 
-
-function se_wp_enqueue_scripts() {
-    wp_enqueue_script('suggest');
-}
-
-function se_wp_head() {
-?>
-<script type="text/javascript">
-    var se_ajax_url = "<?php echo admin_url('admin-ajax.php'); ?>";
-    jQuery(document).ready(function() {
-        jQuery('#s').suggest(se_ajax_url + '?action=se_lookup');
-        jQuery('div#debuginfo').append(se_ajax_url + '?action=se_lookup');
-        
-    });
-</script>
-<?php
-}
-
-function se_lookup() {
-
-    // Initialise suggestions array  
-    // $suggestions=array();  
-    // $posts = get_posts( array(  
-    // 's' =>$_REQUEST['term'],  
-    // ) );
+//     // Initialise suggestions array  
+//     // $suggestions=array();  
+//     // $posts = get_posts( array(  
+//     // 's' =>$_REQUEST['term'],  
+//     // ) );
     
-    // global $post;  
-    // foreach ($posts as $post): setup_postdata($post);  
-    //     // Initialise suggestion array  
-    //     $suggestion = array();
-    //     $suggestion['label'] = esc_html($post->post_title);  
-    //     $suggestion['link'] = get_permalink();  
+//     // global $post;  
+//     // foreach ($posts as $post): setup_postdata($post);  
+//     //     // Initialise suggestion array  
+//     //     $suggestion = array();
+//     //     $suggestion['label'] = esc_html($post->post_title);  
+//     //     $suggestion['link'] = get_permalink();  
   
-    //     // Add suggestion to suggestions array  
-    //     $suggestions[]= $suggestion;  
-    // endforeach;
-    // $response = $_GET["callback"]  . $suggestions;  
-    // echo $response;  
+//     //     // Add suggestion to suggestions array  
+//     //     $suggestions[]= $suggestion;  
+//     // endforeach;
+//     // $response = $_GET["callback"]  . $suggestions;  
+//     // echo $response;  
   
-    // // Don't forget to exit!  
-    // exit; 
+//     // // Don't forget to exit!  
+//     // exit; 
 
 
-    //**************************************************************************
-    //this is taken from here http://bit.ly/Vv8snY
-    global $wpdb;
-    $suggestions=array();  
+//     //**************************************************************************
+//     //this is taken from here http://bit.ly/Vv8snY
+//     global $wpdb;
+//     $suggestions=array();  
 
-    $search = like_escape($_REQUEST['s']);
+//     $search = like_escape($_REQUEST['s']);
 
-    $query = "SELECT ID,post_title FROM " . $wpdb->posts . "
-        WHERE post_title LIKE '" . $search . "%'
-        AND post_status = 'publish'
-        ORDER BY post_title ASC";
+//     $query = "SELECT ID,post_title FROM " . $wpdb->posts . "
+//         WHERE post_title LIKE '" . $search . "%'
+//         AND post_status = 'publish'
+//         ORDER BY post_title ASC";
 
-    foreach ($wpdb->get_results($query) as $row) {
+//     foreach ($wpdb->get_results($query) as $row) {
         
-        $post_title = $row->post_title;
-        $id = $row->ID;
+//         $post_title = $row->post_title;
+//         $id = $row->ID;
 
-        $suggestion = $post_title . " What \n";
-        $suggestions[]= $suggestion;  
+//         $suggestion = $post_title . " What \n";
+//         $suggestions[]= $suggestion;  
 
-        // $meta = get_post_meta($id, 'YOUR_METANAME', TRUE);
-    }
-    echo $_GET["callback"]  . $suggestions;
-    die();
-}
+//         // $meta = get_post_meta($id, 'YOUR_METANAME', TRUE);
+//     }
+//     echo $_GET["callback"]  . $suggestions;
+//     die();
+// }
 
 
 // function ftb_autocomplete_suggestions(){  
@@ -129,7 +110,9 @@ function se_lookup() {
 //     // Don't forget to exit!  
 //     exit;  
 //  }  
+//Making jQuery new
 
+add_action('init', 'modify_jquery');
 
 
 // bootstrap
@@ -138,16 +121,6 @@ add_action( 'wp_enqueue_scripts', 'wpbootstrap_scripts_with_jquery' );
 //superfish scripts
 add_action('wp_enqueue_scripts','superfish_script_with_jquery');
 
-add_action('wp_enqueue_scripts', 'se_wp_enqueue_scripts'); // suggest script
-
-add_action('wp_head', 'se_wp_head');
-
-
-add_action('wp_ajax_se_lookup', 'se_lookup');
-
-add_action('wp_ajax_nopriv_se_lookup', 'se_lookup');
-// this is for th autocomplete
-// add_action( 'init', 'ftb_autocomplete_init' );
 // 
 // add main JS
 // 
@@ -164,10 +137,73 @@ add_filter( 'the_content', 'mytheme_content_ad' );
 // add my personal debugger
 add_action('wp_footer', 'show_template');
 
+add_action( 'init', 'my_autocomplete' );
+
+
+//Making jQuery
+
+function modify_jquery() {
+    if (!is_admin()) {
+        // comment out the next two lines to load the local copy of jQuery
+        wp_deregister_script('jquery');
+        wp_register_script('jquery',  get_template_directory_uri() . '/js/jquery-1.9.0.js', false, '1.9.0');
+        wp_enqueue_script('jquery');
+    }
+}
 
 
 
 
+function my_autocomplete() {
+        wp_deregister_script('suggest');
+    // Register our jQuery UI style and our custom javascript file  
+    wp_register_style('my-jquery-ui-css',get_template_directory_uri() . '/css/jquery-ui-1.10.0.custom.css');
+    wp_enqueue_style( 'my-jquery-ui-css' );  
+
+    wp_register_script( 'my-jquery-ui-js', get_template_directory_uri() . '/js/jquery-ui-1.10.0.custom.js', array('jquery'),'0.1',true);
+
+    wp_register_script( 'my_acsearch', get_template_directory_uri() . '/js/myacsearch.js', array('jquery','my-jquery-ui-js'),'0.1',true);  
+  wp_localize_script( 'my_acsearch', 'MyAcSearch', array('url' => admin_url( 'admin-ajax.php' )));
+    // Function to fire whenever search form is displayed  
+    add_action( 'get_search_form', 'my_autocomplete_search_form' );  
+  
+    // Functions to deal with the AJAX request - one for logged in users, the other for non-logged in users.  
+    add_action( 'wp_ajax_my_autocomplete', 'my_autocomplete_suggestions' );  
+    add_action( 'wp_ajax_nopriv_my_autocomplete', 'my_autocomplete_suggestions' );  
+}
+
+
+function my_autocomplete_search_form(){
+    wp_enqueue_script( 'my_acsearch' );
+}
+
+function my_autocomplete_suggestions(){  
+    // Query for suggestions  
+    $posts = get_posts( array(  
+        's' =>$_REQUEST['term'],  
+    ) );  
+  
+    // Initialise suggestions array  
+    $suggestions=array();  
+  
+    global $post;  
+    foreach ($posts as $post): setup_postdata($post);  
+        // Initialise suggestion array  
+        $suggestion = array();  
+        $suggestion['label'] = esc_html($post->post_title);  
+        $suggestion['link'] = get_permalink();  
+  
+        // Add suggestion to suggestions array  
+        $suggestions[]= $suggestion;  
+    endforeach;  
+  
+    // JSON encode and echo  
+    $response = $_GET["callback"] . "(" . json_encode($suggestions) . ")";  
+    echo $response;  
+  
+    // Don't forget to exit!  
+    exit;  
+}  
 /**
  * This function registers the jqui js files
  * 
@@ -240,75 +276,6 @@ function my_styles() {
 
 }
 
-
- function ftb_autocomplete_init() {
-//     // Register our jQuery UI style and our custom javascript file
-// wp_register_style('ftb-jquery-ui',get_template_directory_uri() . '/css/jquery-ui-autocomplete-1.8.24.css');
-// wp_register_style('ftb-jquery-ui','http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery.ui.autocomplete.css');
-
- // wp_register_script( 'jq-ui-script', get_template_directory_uri() . '/js/jquery-ui-1.10.0.custom.js', array( 'jquery' ) );
-//         // For either a plugin or a theme, you can then enqueue the script:
-    // wp_enqueue_script( 'jq-ui-script' );
-//     
- // wp_register_script( 'my_acsearch', get_template_directory_uri() . '/js/myacsearch.js', array('jquery','jq-ui-script'),null,true);
-// wp_localize_script( 'my_acsearch', 'MyAcSearch', array('url' => admin_url( 'admin-ajax.php' )));
-//     // Function to fire whenever search form is displayed
-
-// add_action( 'get_search_form', 'ftb_autocomplete_search_form' );
-//     // Functions to deal with the AJAX request - one for logged in users, the other for non-logged in users.
-add_action( 'wp_ajax_ftb_autocompletesearch', 'ftb_autocomplete_suggestions' );
-add_action( 'wp_ajax_nopriv_ftb_autocompletesearch', 'ftb_autocomplete_suggestions' );
-}
-
-
-// function ftb_autocomplete_search_form(){  
-//     wp_enqueue_script( 'my_acsearch' );  
-//     wp_enqueue_style( 'ftb-jquery-ui' );  
-// } 
-
-
-function ftb_autocomplete_suggestions(){  
-    // Query for suggestions  
-    // Initialise suggestions array  
-    $suggestions=array();  
-  
-
-    $posts = get_posts( array(  
-        's' =>$_REQUEST['term'],  
-    ) );  
-
-    global $post;  
-    foreach ($posts as $post): setup_postdata($post);  
-        // Initialise suggestion array  
-        $suggestion = array();  
-        $suggestion['label'] = esc_html($post->post_title);  
-        $suggestion['link'] = get_permalink();  
-  
-        // Add suggestion to suggestions array  
-        $suggestions[]= $suggestion;  
-    endforeach;  
-
-  $options = get_option('motrton-one_options');
-  $termsstring = $options['searchterms'];
-   $terms = explode(",", $termsstring);
-   foreach($terms as $value) {
-    $suggestion = array();
-    $suggestion['label'] = "" . esc_html(  trim($value));  
-    $suggestion['link'] = '';  
-    $suggestions[]= $suggestion;  
-
-    }
-
-    // JSON encode and echo  
-    $response = $_GET["callback"] . "(" . json_encode($suggestions) . ")";  
-    echo $response;  
-  
-    // Don't forget to exit!  
-    exit;  
- }  
-
-
-
 // // custom menu
 // add_action('init','register_custom_menu');
 // function register_custom_menu(){
@@ -360,8 +327,6 @@ function mytheme_content_ad( $content ) {
 // return preg_replace('/<ul>/', '<ul class="sf-menu sf-navbar">', $ulclass, 1);
 // }
 // add_filter('wp_page_menu','add_menuclass');
-
-
 
 
 // DEVELOPMENT TOOL

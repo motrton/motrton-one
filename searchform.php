@@ -9,9 +9,8 @@
  */
 ?>
 
-<!--  <div class="searchfield">
-    <div class="ui-widget"> -->
-     <form method="get" id="searchform" class="form-search" action="<?php echo esc_url( home_url( '/' ) ); ?>">  
+    <div class="ui-widget">
+     <form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">  
       <!--    <label for="s" class="assistive-text"><?php _e( 'Suche', 'motrton-one' ); ?></label> -->  
          <input type="text" name="s" id="s" class="input-medium search-query" data-provide="typeahead" placeholder="<?php esc_attr_e( 'Begirff oder &darr; plus &crarr;', 'motrton-one' ); ?>" />  
          <?php
@@ -39,5 +38,4 @@
          // echo '<div id="searchterms" style="visibility: hidden;">'. json_encode($terms) .'}</div>'
          ?>
      </form>
-<!--   </div> 
- </div> -->
+ </div> 

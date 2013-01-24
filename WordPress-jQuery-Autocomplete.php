@@ -40,25 +40,6 @@ class AutoComplete {
         add_action( 'wp_print_footer_scripts', array( __CLASS__, 'print_footer_scripts' ), 11 );
     }
 
-    private function print_footer_scripts() {
-        ?>
-	<script type="text/javascript">
-	jQuery(document).ready(function ($){
-		var ajaxurl = '<?php echo admin_url( 'admin-ajax.php' ); ?>';
-        	var ajaxaction = '<?php echo self::$action ?>';
-        	$("#secondary #searchform #s").autocomplete({
-			delay: 0,
-			minLength: 3,
-			source: function(req, response){  
-				$.getJSON(ajaxurl+'?callback=?&action='+ajaxaction, req, response);  
-			},
-            		select: function(event, ui) {
-                		window.location.href=ui.item.link;
-            		},
-        	});
-   	 });
-    </script><?php
-    }
 
     private function autocomplete_suggestions() {
         $posts = get_posts( array(
