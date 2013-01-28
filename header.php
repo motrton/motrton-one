@@ -127,11 +127,11 @@ http://wordpress.org/support/topic/adding-the-searchform-to-the-navbar
 </div> <!-- close row -->
 
 </div> <!-- close container -->
-  <div class="hidden-phone pull-right" id="desktop-search">
+  <div class="hidden-phone" id="desktop-search"> 
 <?php 
   get_search_form();
  ?>
-  </div>
+   </div>
 </header>
  <div class="hidden-phone custom-border" id="submenu-border-top"></div>
           <div class="span2">

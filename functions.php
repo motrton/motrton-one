@@ -19,107 +19,17 @@ require_once('twitter_bootstrap_nav_walker.php');
  *
  */
 
-// function se_lookup() {
-
-//     // Initialise suggestions array  
-//     // $suggestions=array();  
-//     // $posts = get_posts( array(  
-//     // 's' =>$_REQUEST['term'],  
-//     // ) );
-    
-//     // global $post;  
-//     // foreach ($posts as $post): setup_postdata($post);  
-//     //     // Initialise suggestion array  
-//     //     $suggestion = array();
-//     //     $suggestion['label'] = esc_html($post->post_title);  
-//     //     $suggestion['link'] = get_permalink();  
-  
-//     //     // Add suggestion to suggestions array  
-//     //     $suggestions[]= $suggestion;  
-//     // endforeach;
-//     // $response = $_GET["callback"]  . $suggestions;  
-//     // echo $response;  
-  
-//     // // Don't forget to exit!  
-//     // exit; 
-
-
-//     //**************************************************************************
-//     //this is taken from here http://bit.ly/Vv8snY
-//     global $wpdb;
-//     $suggestions=array();  
-
-//     $search = like_escape($_REQUEST['s']);
-
-//     $query = "SELECT ID,post_title FROM " . $wpdb->posts . "
-//         WHERE post_title LIKE '" . $search . "%'
-//         AND post_status = 'publish'
-//         ORDER BY post_title ASC";
-
-//     foreach ($wpdb->get_results($query) as $row) {
-        
-//         $post_title = $row->post_title;
-//         $id = $row->ID;
-
-//         $suggestion = $post_title . " What \n";
-//         $suggestions[]= $suggestion;  
-
-//         // $meta = get_post_meta($id, 'YOUR_METANAME', TRUE);
-//     }
-//     echo $_GET["callback"]  . $suggestions;
-//     die();
-// }
-
-
-// function ftb_autocomplete_suggestions(){  
-//     // Query for suggestions  
-//     // Initialise suggestions array  
-//     $suggestions=array();  
-  
-
-//     $posts = get_posts( array(  
-//         's' =>$_REQUEST['term'],  
-//     ) );  
-
-//     global $post;  
-//     foreach ($posts as $post): setup_postdata($post);  
-//         // Initialise suggestion array  
-//         $suggestion = array();  
-//         $suggestion['label'] = esc_html($post->post_title);  
-//         $suggestion['link'] = get_permalink();  
-  
-//         // Add suggestion to suggestions array  
-//         $suggestions[]= $suggestion;  
-//     endforeach;  
-
-//   $options = get_option('motrton-one_options');
-//   $termsstring = $options['searchterms'];
-//    $terms = explode(",", $termsstring);
-//    foreach($terms as $value) {
-//     $suggestion = array();
-//     $suggestion['label'] = "" . esc_html(  trim($value));  
-//     $suggestion['link'] = '';  
-//     $suggestions[]= $suggestion;  
-
-//     }
-
-//     // JSON encode and echo  
-//     $response = $_GET["callback"] . "(" . json_encode($suggestions) . ")";  
-//     echo $response;  
-  
-//     // Don't forget to exit!  
-//     exit;  
-//  }  
 //Making jQuery new
+// makes problems with superfish plugin
+// add_action('init', 'modify_jquery');
 
-add_action('init', 'modify_jquery');
-
-
-// bootstrap
+// bootstrap js
 add_action( 'wp_enqueue_scripts', 'wpbootstrap_scripts_with_jquery' );
 
-//superfish scripts
+//superfish scripts js
 add_action('wp_enqueue_scripts','superfish_script_with_jquery');
+
+add_action('wp_enqueue_scripts','combobox_with_jqueryui');
 
 // 
 // add main JS
@@ -155,9 +65,10 @@ function modify_jquery() {
 
 
 function my_autocomplete() {
-        wp_deregister_script('suggest');
+
+    wp_deregister_script('suggest');
     // Register our jQuery UI style and our custom javascript file  
-    wp_register_style('my-jquery-ui-css',get_template_directory_uri() . '/css/jquery-ui-1.10.0.custom.css');
+    wp_register_style('my-jquery-ui-css',get_template_directory_uri() . '/css/jquery-ui-1.10.0.custom.css',array('jquery-ui-datepicker-style'));
     wp_enqueue_style( 'my-jquery-ui-css' );  
 
     wp_register_script( 'my-jquery-ui-js', get_template_directory_uri() . '/js/jquery-ui-1.10.0.custom.js', array('jquery'),'0.1',true);
@@ -197,23 +108,25 @@ function my_autocomplete_suggestions(){
         $suggestions[]= $suggestion;  
     endforeach;  
   
+  $options = get_option('motrton-one_options');
+  $termsstring = $options['searchterms'];
+   $terms = explode(",", $termsstring);
+   foreach($terms as $value) {
+    $suggestion = array();
+    $suggestion['label'] = "" . esc_html(  trim($value));
+    $suggestion['link'] = site_url('/') .'?s=' . esc_html(  trim($value)) . "&submit=Search";
+    $suggestions[]= $suggestion;  
+
+    }
+
+
     // JSON encode and echo  
-    $response = $_GET["callback"] . "(" . json_encode($suggestions) . ")";  
+    $response = $_GET["callback"] . "(" . json_encode($suggestions) . ")";
     echo $response;  
   
     // Don't forget to exit!  
     exit;  
 }  
-/**
- * This function registers the jqui js files
- * 
- */
-// function jqueryui_scripts_with_jquery(){
-//     // Register the script like this for a theme:
-//     wp_register_script( 'jq-ui-script', get_template_directory_uri() . '/js/jquery-ui-1.10.0.custom.min.js', array( 'jquery' ) );
-//         // For either a plugin or a theme, you can then enqueue the script:
-//     wp_enqueue_script( 'jq-ui-script' );
-//     }
 
 /**
  * This function registers the bootstrap js files
@@ -231,8 +144,8 @@ function wpbootstrap_scripts_with_jquery(){
  *
  */
 function superfish_script_with_jquery(){
-wp_register_script( 'hoverintent-script', get_template_directory_uri() . '/js/hoverIntent.js', array( 'jquery' ) );
-wp_enqueue_script( 'hoverintent-script' );
+// wp_register_script( 'hoverintent-script', get_template_directory_uri() . '/js/hoverIntent.js', array( 'jquery' ) );
+// wp_enqueue_script( 'hoverintent-script' );
 wp_register_script( 'superfish-script', get_template_directory_uri() . '/js/superfish.js', array( 'jquery' ) );
 wp_enqueue_script( 'superfish-script' );
 
@@ -246,6 +159,10 @@ wp_register_script( 'main-script', get_template_directory_uri() . '/js/main.js',
 wp_enqueue_script( 'main-script' );
 }
 
+function combobox_with_jqueryui(){
+wp_register_script( 'combobox-script', get_template_directory_uri() . '/js/combobox.js', array( 'jquery','my-jquery-ui-js') );
+wp_enqueue_script( 'combobox-script' );
+}
 
 /**
  * all the css files
@@ -254,24 +171,21 @@ wp_enqueue_script( 'main-script' );
 function my_styles() {
 
     wp_register_style( 'superfish', get_template_directory_uri() . '/css/custom-superfish.css' );
-    wp_enqueue_style( 'superfish' );
-
-    wp_register_style( 'superfish-navbar', get_template_directory_uri() . '/css/custom-superfish-navbar.css' );
-    wp_enqueue_style( 'superfish-navbar' );
-
+    wp_register_style( 'superfish-navbar', get_template_directory_uri() . '/css/custom-superfish-navbar.css',array('superfish') );
     wp_register_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.css' );
+    wp_register_style( 'overwrite', get_template_directory_uri() . '/css/overwrite.css',array('my-jquery-ui-css','font-awesome','superfish','superfish-navbar'));
+    // wp_register_style( 'oo-naok-style', get_template_directory_uri() . '/css/oo-naok.css',array('overwrite') );
+    wp_register_style( 'bs-responsive', get_template_directory_uri() . '/bootstrap/css/bootstrap-responsive.css',array('overwrite'));
+
+    wp_register_style( 'combobox', get_template_directory_uri() . '/css/combobox.css');
+
+    wp_enqueue_style( 'superfish' );
+    wp_enqueue_style( 'superfish-navbar' );
     wp_enqueue_style( 'font-awesome' );
-
-    wp_register_style( 'overwrite', get_template_directory_uri() . '/css/overwrite.css' );
     wp_enqueue_style( 'overwrite' );
-
-    // wp_register_style( 'oo-naok-style', get_template_directory_uri() . '/css/oo-naok.css' );
     // wp_enqueue_style( 'oo-naok-style' );
+    wp_enqueue_style( 'combobox' );
 
-    // wp_register_style( 'jqui', get_template_directory_uri() . '/css/jquery-ui-1.10.0.custom.css' );
-    // wp_enqueue_style( 'jqui' );
-
-    wp_register_style( 'bs-responsive', get_template_directory_uri() . '/bootstrap/css/bootstrap-responsive.css' );
     wp_enqueue_style( 'bs-responsive' );
 
 }
@@ -342,9 +256,10 @@ function show_template() {
     $str2 = "Current ID -->  <strong>" . get_the_ID() . "</strong><br>";
     $str3 = "Pages to Exclude --> <strong>" . $options['excludepages'] . "</strong><br>";
     $str4 = admin_url('admin-ajax.php') . "<br>";
+    $str5 = admin_url('') . "<br>";
     $end = "</p></div>";
 
-    print_r($heading . $str1 .$str2. $str3 . $str4 .  $end);
+    print_r($heading . $str1 .$str2. $str3 . $str4 . $str5. $end);
 }
 }
 

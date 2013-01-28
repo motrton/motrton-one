@@ -159,12 +159,20 @@ $('div#debuginfo').append('<br>' + res);
  * helper($)
  */
 
+jQuery(function($) {
+    $( ".combobox" ).combobox();
+    $( ".toggle" ).click(function() {
+      $( ".combobox" ).toggle();
+    });
+ });
+
 
 jQuery(document).ready(function($){
 superfish($);
 linkIcons($);
 
 
+ 
 
 
 
