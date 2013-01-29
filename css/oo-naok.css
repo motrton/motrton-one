@@ -1,0 +1,81 @@
+body {
+  padding-top: 100px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+body h1 {
+  color: #08618f;
+  font-size: 2.1em;
+  font-weight: 600;
+  line-height: 1.2;
+}
+body h2 {
+  color: #08618f;
+  font-size: 1.4em;
+  font-weight: 600;
+  line-height: 1.5em;
+}
+body h3 {
+  color: #08618f;
+  font-size: 1.4em;
+  font-weight: 300;
+  line-height: 1.5em;
+}
+body h4 {
+  color: #08618f;
+  font-size: 1.1em;
+  font-weight: 700;
+  line-height: 1.5em;
+}
+body h4 a:link {
+  color: #5aa332;
+  text-decoration: none;
+  font-weight: 700;
+}
+body h4 a:visited {
+  color: #98c230;
+  text-decoration: none;
+  font-weight: 700;
+}
+body h4 a:active {
+  color: #348d43;
+  text-decoration: none;
+  font-weight: 700;
+}
+body h4 a:hover {
+  color: #348d43;
+  text-decoration: none;
+  font-weight: 700;
+}
+body p {
+  color: #3c3c3b;
+  font-size: 1.4em;
+  font-weight: 300;
+  line-height: 1.5em;
+}
+body p a:link {
+  color: #5aa332;
+  text-decoration: none;
+  font-weight: 400;
+}
+body p a:visited {
+  color: #98c230;
+  text-decoration: none;
+  font-weight: 400;
+}
+body p a:active {
+  color: #348d43;
+  text-decoration: none;
+  font-weight: 400;
+}
+body p a:hover {
+  color: #348d43;
+  text-decoration: none;
+  font-weight: 400;
+}
+body p .bold {
+  font-weight: 400;
+  color: #000000;
+}
+body p .italic {
+  font-style: italic;
+}
