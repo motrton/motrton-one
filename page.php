@@ -11,8 +11,9 @@
   <?php the_content(); ?>
   <?php 
   if ( is_user_logged_in() ) {
+
     // edit_post_link('Seite editieren', '<p>', ' <i class="icon-edit"></i></p>');
-     echo '<p><a href="' . get_edit_post_link() . '" > '. e_('Seite editieren','motrton-one') . ' <i class="icon-edit"></i></a></p>';
+     echo '<p><a href="' . get_edit_post_link() . '" > '. _e('Seite editieren','motrton-one') . ' <i class="icon-edit"></i></a></p>';
   }
      ?>
   <?php endwhile; else: ?>

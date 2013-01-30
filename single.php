@@ -36,13 +36,13 @@
 <div id="postnav">
   <?php if (get_adjacent_post(false, '', true)): // if there are older posts ?>
 
-<p class="alignleft"><?php previous_post_link('<span class="unlinked">%link</span>', '<i class="icon-hand-left"></i> ' . _e('Vorheriger Post','motrton-one')); ?></p>
+<p class="alignleft"><?php previous_post_link('%link', '<i class="icon-hand-left"></i> ' . _e('Vorheriger Post','motrton-one')); ?></p>
 
 <?php endif; ?>
 
      <?php if (get_adjacent_post(false, '', false)): // if there are newer posts ?>
 
-<p class="alignright"><?php next_post_link('<span class="unlinked">%link</span>', _e('Nächster Post','motrton-one') . '<i class="icon-hand-right"></i>'); ?></p>
+<p class="alignright"><?php next_post_link('%link', _e('Nächster Post','motrton-one') . '<i class="icon-hand-right"></i>'); ?></p>
 
 <?php endif; ?>
 <div style="clear: both;"></div>
