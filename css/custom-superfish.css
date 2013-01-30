@@ -143,7 +143,7 @@ li.sfHover > a > .sf-sub-indicator {
 
 }
 /*** shadows for all but IE6 ***/
-.sf-shadow ul {
+/*.sf-shadow ul {
   padding: 0 8px 9px 0;
   -moz-border-radius-bottomleft: 17px;
   -moz-border-radius-topright: 17px;
@@ -152,4 +152,4 @@ li.sfHover > a > .sf-sub-indicator {
 }
 .sf-shadow ul.sf-shadow-off {
   background: transparent;
-}
+}*/

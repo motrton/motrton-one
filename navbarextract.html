@@ -1,0 +1,53 @@
+
+<!-- Lets try to get a responsive menu for phones add  visible-phone -->
+<div class="navbar navbar-fixed-top visible-phone">  
+  <div class="navbar-inner">  
+    <div class="container">  
+<!-- <ul class="nav">
+  <li class="dropdown">  
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">  
+          Services  
+          <b class="caret"></b>  
+    </a>  
+    <ul class="dropdown-menu">  
+     <li><a href="#">Web Design</a></li>  
+    <li><a href="#">Web development</a></li>  
+    <li><a href="#">Wordpress Theme development</a></li>  
+    </ul>
+  </li>
+</ul> -->
+<ul class="nav">
+  <!-- wp_list_pages start -->
+        <?php
+        
+        $options = get_option('motrton-one_options');
+
+$args = array(
+    'depth'        => 0,
+    'show_date'    => '',
+    'date_format'  => get_option('date_format'),
+    'child_of'     => 0,
+    'exclude'      =>  $options['excludepages'],
+    'include'      => '',
+    'title_li'     => __(''),
+    'echo'         => 1,
+    'authors'      => '',
+    'sort_column'  => 'menu_order, post_title',
+    'link_before'  => '',
+    'link_after'   => '',
+    'walker'       => '',
+    'post_type'    => 'page',
+    'post_status'  => 'publish' 
+);
+ wp_list_pages( $args );
+
+?>
+<!-- wp_list_pages start -->
+
+</ul>
+<!--   <ul class="nav">
+  <li><a href="<?php echo get_permalink(69); ?>">Blog</a></li>
+</ul>  -->
+    </div>  <!-- close container -->
+  </div>  <!-- close navbar inner -->
+</div> <!-- clse navbar fixed top -->

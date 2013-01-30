@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 <!-- <h1>THIS IS PAGE</h1>-->
-<div class="container">
+<div class="container" id="main">
+
+<div class="linked">
   <div class="row">
     <div class="span8 offset2">
         <!-- content -->
@@ -18,6 +20,7 @@
   <?php endif; ?>
         
     </div>
+  </div>
   </div>
 </div> <!-- close container -->
 

@@ -16,7 +16,6 @@ This simple theme was built using the example Bootstrap theme "Basic marketing s
 
 @import url('bootstrap/less/bootstrap.less');
 @import url('bootstrap/less/custom-bs-variables.less');
-
 @import url('less/custom-mixins.less');
 @import url('less/elements.less');
 
@@ -26,12 +25,14 @@ This simple theme was built using the example Bootstrap theme "Basic marketing s
  * These are the basic styles that get loaded first
  */
 
+@headlineColor:#333e34;
 
 body { 
      // padding-top: 60px;
      padding-bottom: 40px;
     font-family: 'Source Sans Pro', sans-serif;
     // font-size: 1.2em;
+    background-image :url('images/pw_maze_white.png');
     p{
       font-size: 1.2em;
     }
@@ -41,7 +42,32 @@ body {
       padding-bottom: 2em;
     }
 }
-    p.post-subline{
+
+h1,h2,h3,h4,h5,h6,{
+  color:@headlineColor;
+  .letterPressShadow(@headlineColor);
+}
+/** LETTER PRESS START **/
+.depth {
+    display: block;
+    color: black;
+    /*font: bold 5em serif;*/
+    position: relative;
+}
+.depth:before, .depth:after {
+    content: attr(title);
+    color: rgba(255,255,255,.1);
+    position: absolute;
+}
+.depth:before { top: 1px; left: 1px }
+.depth:after  { top: 2px; left: 2px }
+/** LETTER PRESS END **/
+
+
+
+
+
+p.post-subline{
       font-size: 0.9em;
   }
 #postnav{
@@ -53,6 +79,26 @@ body {
   }
 }
 
+
+.foot{
+
+    font-size: 70%;
+}
+
+
+/**
+ * home.php
+ */
+
+.image-container-inner-home{
+      padding-top: 1em;
+
+  img{
+    .e_rounded(@borderRadiusLarge);
+
+  }
+}
+
 // .border{
 //     border-top: 1px solid rgba(0, 0, 0, 0.2);
 //     border-bottom: 1px solid rgba(255, 255, 255, 0.9);
@@ -61,19 +107,16 @@ body {
 // }
 
 
-#desktop-search-container{
-
-}
 #desktop-navbar{
   .simple-border-bottom(@linkColor);
 }
 
 #desktop-search{
-background: transparent!;
-position:absolute;
-float:right;
-top:23px +  @inputHeight;
- right:10%;
+// background: transparent!;
+ position:absolute;
+ float:right;
+ top:23px ;
+   right:50px;
 // .simple-border-top(@linkColor);
 // .simple-border-bottom(@linkColor);
 
@@ -114,7 +157,7 @@ top:23px +  @inputHeight;
 
 #helloworld{
 h1,h2,h3,h4{
-.letterPressShadow (#dedede);
+// .letterPressShadow (#dedede);
 
 }
 

@@ -1,3 +1,10 @@
+<?php
+/*
+Template Name Posts: Extract Images 2 top
+*/
+?>
+
+
 <?php get_header(); ?>
 <!-- <h1>THIS IS SINGLE</h1> -->
 <div class="container" id="main">
@@ -10,16 +17,35 @@
   <div class="row">
 
     <div class="span8">
+      <!-- IMAGE -->
+
+      <?php
+            $argsThumb = array(
+            'order'          => 'ASC',
+            'post_type'      => 'attachment',
+            'post_parent'    => $post->ID,
+            'post_mime_type' => 'image',
+            'post_status'    => null
+            );
+        $attachments = get_posts($argsThumb);
+        if ($attachments) {
+            foreach ($attachments as $attachment) {
+            //echo apply_filters('the_title', $attachment->post_title);
+            echo '<img class="post-image" src="'.wp_get_attachment_url($attachment->ID, 'thumbnail', false, false).'" /><br>';
+        }
+    }
+?>
+
+
         <!-- content -->
   <h1><?php the_title(); ?></h1>
   <p><em><?php the_time('l, F jS, Y'); ?></em></p>
-
   <?php 
-    // $content = get_the_content();
-    // $postOutput = preg_replace('/<img[^>]+./','', $content);
-    // echo $postOutput;
+    $content = get_the_content();
+    $postOutput = preg_replace('/<img[^>]+./','', $content);
+    echo $postOutput;
 
-   the_content();
+  // the_content();
 
   ?>
   <hr>
