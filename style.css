@@ -8592,6 +8592,9 @@ h6 {
   text-shadow: 0px -1px 0.5px #000000;
   text-shadow: 0px 1px 0.5px #ffffff;
 }
+.thetopnav {
+  width: 100;
+}
 /** LETTER PRESS START **/
 .depth {
   display: block;

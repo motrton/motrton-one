@@ -44,35 +44,46 @@ This is where im working ;ftb
  */
 
 ul.sf-menu {
+
+
+.e_gradient( #ef0007,  #a20004,  #fc000a);
+margin-bottom: 0px;
+
  a {
   border-left:  0px ;
   border-top:   0px ;
- color:      @linkColor;
+ color:      @white;
+ // .letterPressShadow (#290004);
 }
 a:visited  { /* visited pseudo selector so IE6 applies text colour*/
-  color:      @linkColor;
+  color:      @white;
 
 }
 
-  // .rounded(3px);
+
 
   width: 100%;
   // this controls the menu top width
   li{
     display:inline;
     position:relative;
+  @topcolor:#000000;
+ @bottomcolor:#bc3137; 
+   .letterPressShadowControlled (@topcolor, @bottomcolor);
 
    ul.children{
-    
+    width:auto;
      text-align: center;
      font-size: 80%;
-     display:inline;
+      display:inline;
     position:absolute;
+    top:35px;
     left:0;
     white-space:nowrap;
+    background-color: green;
    }
    li{
-        display:inline;
+         display:inline;
 
    }
 
@@ -86,35 +97,26 @@ a:visited  { /* visited pseudo selector so IE6 applies text colour*/
 
 .themenu{
 
- 
   font-size: 1.5em;
    :first-child{
      text-align: left;
    }
-
-  // a{
-  //   color:@linkColor;
-  // }
-
-  // a:hover{
-  //   color:@linkColorHover;
-  // }
 
 
 
 
 ul.sf-menu.sf-navbar{
   .e_rounded(0px);
-  padding-bottom: 0px;
 
-  // .simple-border-bottom(@linkColor);
-  //   border-width: 1px;
-  //   border-bottom-style: solid;
-  // border-bottom: 1px solid  @linkColor;
-  // box-shadow: inset 0 1px 0 white;
 }
 
 }
+
+.sf-navbar{
+    padding-bottom: 0px;
+
+}
+
 
 .ui-widget{
   form#searchform{
@@ -134,19 +136,8 @@ ul.sf-menu.sf-navbar{
 
 }
 
-
 form:focus,input:focus {
-// .rounded(0px);
 border-color:@linkColor !important;
 
 }
 
-
-
-
-// @import url('../bootstrap/less/bootstrap-responsive.less');
-
-// nav > ul > li > ul {display:none}
-// nav > ul > li:hover ul {display:block}
-// nav > ul > li > ul > li > ul{display:none}
-// nav > ul > li > ul > li:hover ul {display:block}

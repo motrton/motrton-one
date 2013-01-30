@@ -172,7 +172,15 @@ superfish($);
 linkIcons($);
 
 
- 
+
+    var sumwidth=0;
+    $("ul.children").children().each(function($,sumwidth) {
+        var child = $(this);
+        sumwidth+=child.width();
+
+    });
+    $("ul.children").width(sumwidth);
+
 
 
 

@@ -71,11 +71,9 @@ $args = array(
 <!-- END MOBILE NAVBAR PAGES -->
 
   <div class="nav pull-right visible-phone" id="phone-search"><?php get_search_form(); ?></div>
-    <div class="container hidden-phone">
-      <div class="row">
-        <div class="span10">
-          <div class="themenu">
 
+<!-- START DESKTOP NAV -->
+<div class="thetopnav hidden-phone" id="topbar">
 <ul class="sf-menu sf-navbar hidden-phone" id="desktop-navbar">
 <!-- wp_list_pages start -->
         <?php
@@ -113,21 +111,22 @@ http://wordpress.org/support/topic/adding-the-searchform-to-the-navbar
 -->
 
 </ul>
-</div>
-</div>
-  <!-- <div class="span2"> -->
-   <!-- <div id="desktop-search-container"> -->
-  <!-- <div class="hidden-phone" id="desktop-search"> -->
-<?php 
-  // get_search_form();
- ?>
-  <!-- </div> -->
-<!--  </div> -->
-<!-- </div> -->
-</div> <!-- close row -->
+<!-- </div>
 
-</div> <!-- close container -->
-  <div class="hidden-phone" id="desktop-search"> 
+    <div class="container hidden-phone">
+      <div class="row">
+        <div class="span10">
+          <div class="themenu">
+
+      </div>
+</div>
+
+</div> 
+
+</div> 
+ -->
+
+<div class="hidden-phone" id="desktop-search"> 
 <?php 
   get_search_form();
  ?>
