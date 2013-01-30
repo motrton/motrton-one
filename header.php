@@ -74,7 +74,7 @@ $args = array(
     <div class="container hidden-phone">
       <div class="row">
         <div class="span10">
-          <div class="themenu"> 
+          <div class="themenu">
 
 <ul class="sf-menu sf-navbar hidden-phone" id="desktop-navbar">
 <!-- wp_list_pages start -->
