@@ -8592,8 +8592,16 @@ h6 {
   text-shadow: 0px -1px 0.5px #000000;
   text-shadow: 0px 1px 0.5px #ffffff;
 }
+/************************************************************
+ *************************HEADER******************************
+ ************************************************************/
 .thetopnav {
   width: 100;
+}
+h1#blogname {
+  width: 100%;
+  text-align: center;
+  font-size: 4em;
 }
 /** LETTER PRESS START **/
 .depth {
@@ -8618,6 +8626,24 @@ h6 {
   left: 2px;
 }
 /** LETTER PRESS END **/
+#desktop-search {
+  position: absolute;
+  float: right;
+  top: 3px ;
+  right: 50px;
+}
+/**
+ * Enclose the search with a line
+ */
+#submenu-border-top {
+  position: absolute;
+  top: 23px;
+  float: right;
+  right: 10%;
+}
+/************************************************************
+ *************************CONTENT******************************
+ ************************************************************/
 p.post-subline {
   font-size: 0.9em;
 }
@@ -8626,9 +8652,6 @@ p.post-subline {
 }
 #postnav .alignright {
   float: right;
-}
-.foot {
-  font-size: 70%;
 }
 /**
  * home.php
@@ -8644,33 +8667,15 @@ p.post-subline {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
-#desktop-navbar {
-  border-width: 1px;
-  border-bottom-style: solid;
-  border-bottom: 1px solid #607a65;
-  box-shadow: inset 0 1px 0 white;
+/************************************************************
+ *************************FOOTER******************************
+ ************************************************************/
+.foot {
+  font-size: 70%;
 }
-#desktop-search {
-  position: absolute;
-  float: right;
-  top: 23px ;
-  right: 50px;
-}
-/**
- * Enclose the search with a line
- */
-.custom-border {
-  border-width: 1px;
-  border-bottom-style: solid;
-  border-bottom: 1px solid #607a65;
-  box-shadow: inset 0 1px 0 white;
-}
-#submenu-border-top {
-  position: absolute;
-  top: 23px;
-  float: right;
-  right: 10%;
-}
+/************************************************************
+ *************************SPECIAL******************************
+ ************************************************************/
 /**
  * This is for the under construction page
  * 

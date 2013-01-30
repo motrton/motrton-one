@@ -159,29 +159,17 @@ $('div#debuginfo').append('<br>' + res);
  * helper($)
  */
 
-jQuery(function($) {
-    $( ".combobox" ).combobox();
-    $( ".toggle" ).click(function() {
-      $( ".combobox" ).toggle();
-    });
- });
+// jQuery(function($) {
+//     $( ".combobox" ).combobox();
+//     $( ".toggle" ).click(function() {
+//       $( ".combobox" ).toggle();
+//     });
+//  });
 
 
 jQuery(document).ready(function($){
 superfish($);
 linkIcons($);
-
-
-
-    var sumwidth=0;
-    $("ul.children").children().each(function($,sumwidth) {
-        var child = $(this);
-        sumwidth+=child.width();
-
-    });
-    $("ul.children").width(sumwidth);
-
-
 
 
 // var se_ajax_url = "<?php echo admin_url('admin-ajax.php'); ?>";

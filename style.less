@@ -48,10 +48,23 @@ h1,h2,h3,h4,h5,h6,{
   .letterPressShadow(@headlineColor);
 }
 
+
+
+
+ /************************************************************
+ *************************HEADER******************************
+ ************************************************************/
+
+
 .thetopnav{
   width:100;
 }
 
+h1#blogname{
+  width:100%;
+  text-align: center;
+  font-size: 4em;
+}
 /** LETTER PRESS START **/
 .depth {
     display: block;
@@ -69,8 +82,38 @@ h1,h2,h3,h4,h5,h6,{
 /** LETTER PRESS END **/
 
 
+#desktop-navbar{
+
+}
+
+#desktop-search{
+ position:absolute;
+ float:right;
+ top:3px ;
+   right:50px;
+}
 
 
+
+#phone-search{
+
+}
+/**
+ * Enclose the search with a line
+ */
+
+#submenu-border-top{
+  position:absolute;
+
+   top: 23px;
+   float:right;
+   right:10%;
+
+}
+
+ /************************************************************
+ *************************CONTENT******************************
+ ************************************************************/
 
 p.post-subline{
       font-size: 0.9em;
@@ -85,74 +128,34 @@ p.post-subline{
 }
 
 
-.foot{
-
-    font-size: 70%;
-}
-
 
 /**
  * home.php
  */
-
 .image-container-inner-home{
       padding-top: 1em;
-
   img{
     .e_rounded(@borderRadiusLarge);
 
   }
 }
 
-// .border{
-//     border-top: 1px solid rgba(0, 0, 0, 0.2);
-//     border-bottom: 1px solid rgba(255, 255, 255, 0.9);
-//     margin: 0;
-
-// }
 
 
-#desktop-navbar{
-  .simple-border-bottom(@linkColor);
-}
+ /************************************************************
+ *************************FOOTER******************************
+ ************************************************************/
 
-#desktop-search{
-// background: transparent!;
- position:absolute;
- float:right;
- top:23px ;
-   right:50px;
-// .simple-border-top(@linkColor);
-// .simple-border-bottom(@linkColor);
 
+.foot{
+    font-size: 70%;
 }
 
 
 
-#phone-search{
-
-}
-/**
- * Enclose the search with a line
- */
-.custom-border{
-.simple-border-bottom(@linkColor);
-
-}
-#submenu-border-top{
-  position:absolute;
-
-//   background:transparent!;
-// width: 100%;
-//    height: 36px;
-//   position: fixed;
-   top: 23px;
-   float:right;
-   right:10%;
-//   left: 0;
-//   z-index: -1;
-}
-
+ /************************************************************
+ *************************SPECIAL******************************
+ ************************************************************/
 
 
 /**

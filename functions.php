@@ -22,15 +22,13 @@ require_once('twitter_bootstrap_nav_walker.php');
 //Making jQuery new
 // makes problems with superfish plugin
 // add_action('init', 'modify_jquery');
-
+if( !is_admin() ){
 // bootstrap js
 add_action( 'wp_enqueue_scripts', 'wpbootstrap_scripts_with_jquery' );
-
 //superfish scripts js
 add_action('wp_enqueue_scripts','superfish_script_with_jquery');
 
 add_action('wp_enqueue_scripts','combobox_with_jqueryui');
-
 // 
 // add main JS
 // 
@@ -46,7 +44,7 @@ add_action( 'widgets_init', 'my_register_sidebars' );
 add_filter( 'the_content', 'mytheme_content_ad' );
 // add my personal debugger
 add_action('wp_footer', 'show_template');
-
+}
 add_action( 'init', 'my_autocomplete' );
 
 
@@ -179,15 +177,15 @@ function my_styles() {
 
     wp_register_style( 'combobox', get_template_directory_uri() . '/css/combobox.css');
 
+if( !is_admin() ){
     wp_enqueue_style( 'superfish' );
     wp_enqueue_style( 'superfish-navbar' );
     wp_enqueue_style( 'font-awesome' );
     wp_enqueue_style( 'overwrite' );
     wp_enqueue_style( 'oo-naok-style' );
     wp_enqueue_style( 'combobox' );
-
     wp_enqueue_style( 'bs-responsive' );
-
+    }
 }
 
 // // custom menu

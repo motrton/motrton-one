@@ -76,6 +76,7 @@ $args = array(
 <div class="thetopnav hidden-phone" id="topbar">
 <ul class="sf-menu sf-navbar hidden-phone" id="desktop-navbar">
 <!-- wp_list_pages start -->
+<li class="page-item" style="padding-right:100px;"><a href="#">EN|DE</a></li>
         <?php
         
         $options = get_option('motrton-one_options');
@@ -111,20 +112,19 @@ http://wordpress.org/support/topic/adding-the-searchform-to-the-navbar
 -->
 
 </ul>
-<!-- </div>
+</div>
 
-    <div class="container hidden-phone">
+    <div class="container">
       <div class="row">
-        <div class="span10">
-          <div class="themenu">
+        <div class="span10 offset1">
 
-      </div>
+      <h1 id="blogname" class="depth"><img src="<?php bloginfo('template_directory'); ?>/images/logo.png" alt=""> <?php bloginfo('name') ?></h1>
 </div>
 
 </div> 
 
 </div> 
- -->
+
 
 <div class="hidden-phone" id="desktop-search"> 
 <?php 
