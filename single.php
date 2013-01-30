@@ -12,7 +12,7 @@
     <div class="span8">
         <!-- content -->
   <h1><?php the_title(); ?></h1>
-  <p><em><?php the_time('l, F jS, Y'); ?></em></p>
+  <p><em><?php echo date_i18n(get_option('date_format') ); ?> <?php _e('um','motrton-one'); ?> <?php echo date_i18n(get_option('time_format')); ?></em></p>
 
   <?php 
     // $content = get_the_content();
@@ -25,9 +25,9 @@
   <hr>
 
 <div >
-  <p class="post-subline">Dieser Post wurde von <?php the_author_posts_link(); ?> geschrieben und ist in der/den Kategorie(en) <?php the_category(', '); ?>.<br> <?php 
+  <p class="post-subline"><?php _e('Dieser Post wurde von','motrton-one'); ?> <?php the_author_posts_link(); ?> <?php _e('geschrieben und ist in der/den Kategorie(en)','motrton-one'); ?> <?php the_category(', '); ?>.<br> <?php 
   if ( is_user_logged_in() ) {
-    edit_post_link('Post editieren', '', '');
+    edit_post_link( __('Post editieren','motrton-one'), '', '');
   }
      ?></p>
   <p>
@@ -36,13 +36,13 @@
 <div id="postnav">
   <?php if (get_adjacent_post(false, '', true)): // if there are older posts ?>
 
-<p class="alignleft">     <?php previous_post_link('%link', '<i class="icon-hand-left"></i> Vorheriger Post'); ?></p>
+<p class="alignleft"><?php previous_post_link('<span class="unlinked">%link</span>', '<i class="icon-hand-left"></i> ' . _e('Vorheriger Post','motrton-one')); ?></p>
 
 <?php endif; ?>
 
      <?php if (get_adjacent_post(false, '', false)): // if there are newer posts ?>
 
-<p class="alignright">    <?php next_post_link('%link','Nächster Post <i class="icon-hand-right"></i>'); ?></p>
+<p class="alignright"><?php next_post_link('<span class="unlinked">%link</span>', _e('Nächster Post','motrton-one') . '<i class="icon-hand-right"></i>'); ?></p>
 
 <?php endif; ?>
 <div style="clear: both;"></div>
@@ -66,7 +66,7 @@
 <!-- FALL BACK -->
   <div class="row">
     <div class="span8 offset2">
-          <p><?php _e('Sorry, this post does not exist.'); ?></p>
+          <p><?php _e('Sorry, dieser Post existiert nicht'); ?></p>
     </div>
   </div>
 

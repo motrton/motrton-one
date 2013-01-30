@@ -82,7 +82,7 @@ function linkIcons ($) {
 // $('#main').find('a').append(' <i class="icon-hand-right"></i>');
 // the linked attribute gets appended to the content via
 // a filter
- $('.linked').find('a').append(' <i class="icon-hand-right"></i>');
+ $('.linked').find('a').prepend('<i class="icon-hand-right"></i> ');
     // }
 }
 

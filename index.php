@@ -48,7 +48,7 @@
           }
       ?>
       <!-- content -->
-       <?php the_excerpt()?><a href= "<?php the_permalink(); ?>" > Mehr? </a>
+       <?php the_excerpt()?><a href= "<?php the_permalink(); ?>" ><?php _e('Mehr?','motrton-one')?> </a>
       <p><em><?php the_time('l, F jS, Y'); ?></em></p> 
     </div> <!-- close div span 6 id text-excerpt -->
     </div> <!-- close row inner -->
@@ -56,7 +56,7 @@
     <?php endwhile; else: ?>
 
     <p>
-  <?php _e('Sorry, there is no post'); ?>
+  <?php _e('Leider gibt es keinen Post.'); ?>
     </p>
     <?php endif; ?>
     </div> <!-- close lined class -->

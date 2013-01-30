@@ -12,11 +12,11 @@
   <?php 
   if ( is_user_logged_in() ) {
     // edit_post_link('Seite editieren', '<p>', ' <i class="icon-edit"></i></p>');
-     echo '<p><a href="' . get_edit_post_link() . '" > Seite editieren <i class="icon-edit"></i></a></p>';
+     echo '<p><a href="' . get_edit_post_link() . '" > '. e_('Seite editieren','motrton-one') . ' <i class="icon-edit"></i></a></p>';
   }
      ?>
   <?php endwhile; else: ?>
-    <p><?php _e('Sorry, this page does not exist.'); ?></p>
+    <p><?php _e('Sorry, diese Seite existiert nicht'); ?></p>
   <?php endif; ?>
         
     </div>

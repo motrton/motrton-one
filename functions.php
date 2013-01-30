@@ -47,6 +47,10 @@ add_action('wp_footer', 'show_template');
 }
 add_action( 'init', 'my_autocomplete' );
 
+add_action('after_setup_theme', 'my_theme_setup');
+function my_theme_setup(){
+    load_theme_textdomain('motrton-one', get_template_directory_uri() . '/languages');
+}
 
 //Making jQuery
 

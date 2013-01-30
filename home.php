@@ -48,15 +48,15 @@
           }
       ?>
       <!-- content -->
-       <?php the_excerpt()?><a href= "<?php the_permalink(); ?>" > Mehr? </a>
-      <p><em><?php the_time('l, F jS, Y'); ?></em></p> 
+       <?php the_excerpt()?><a href= "<?php the_permalink(); ?>" ><?php _e('Mehr?','motrton-one'); ?> </a>
+      <p><em><?php echo date_i18n(get_option('date_format') ); ?> <?php _e('um','motrton-one'); ?> <?php echo date_i18n(get_option('time_format')); ?></em> </p> 
     </div> <!-- close div span 6 id text-excerpt -->
     </div> <!-- close row inner -->
     <hr>
     <?php endwhile; else: ?>
 
     <p>
-  <?php _e('Sorry, there is no post'); ?>
+  <?php _e('Leider gibt es keinen Post'); ?>
     </p>
     <?php endif; ?>
     </div> <!-- close lined class -->

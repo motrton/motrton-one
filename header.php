@@ -24,7 +24,7 @@
 
 
   </head>
-  <body>
+  <body class="animated fadeIn">
 <header>
 <!-- START MOBILE NAVBAR PAGES -->
 
@@ -116,9 +116,9 @@ http://wordpress.org/support/topic/adding-the-searchform-to-the-navbar
 
     <div class="container">
       <div class="row">
-        <div class="span10 offset1">
+        <div class="span12">
 
-      <h1 id="blogname" class="depth"><img src="<?php bloginfo('template_directory'); ?>/images/logo.png" alt=""> <?php bloginfo('name') ?></h1>
+      <h1 id="blogname" class="depth animated fadeIn"><img src="<?php bloginfo('template_directory'); ?>/images/logo.png" alt=""> <?php bloginfo('name') ?></h1>
 </div>
 
 </div> 
