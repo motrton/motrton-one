@@ -7,11 +7,31 @@ body h1 {
   font-weight: 600;
   line-height: 1.2;
 }
+body h1#title {
+  color: #08618f;
+  font-size: 5em;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+body h1#header {
+  color: #08618f;
+  font-size: 3.5em;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
 body h2 {
   color: #08618f;
   font-size: 1.4em;
   font-weight: 600;
   line-height: 1.5em;
+}
+body h2#marginalia {
+  color: #5aa332;
+  font-size: 1.3em;
+  font-weight: 600;
+  line-height: 1.7em;
 }
 body h3 {
   color: #08618f;
@@ -77,4 +97,36 @@ body p .bold {
 }
 body p .italic {
   font-style: italic;
+}
+body .navbar {
+  -moz-box-shadow: inset 0px 1px 0px 0px #e94d1d;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #e94d1d;
+  box-shadow: inset 0px 1px 0px 0px #e94d1d;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.2, #e11714), color-stop(1, #b81714));
+  background: -moz-linear-gradient(center top, #e11714 20%, #b81714 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@redmid', endColorstr='@reddark');
+  background-color: #e11714;
+  border: 1px solid #b81714;
+  display: inline-block;
+  color: #ecdfcb;
+  font-size: 1.3em;
+  font-weight: 600;
+  padding: 8px 24px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-decoration: none;
+}
+body .navbar:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1, #b81714), color-stop(1, #e11714));
+  background: -moz-linear-gradient(center top, #b81714 100%, #e11714 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@reddark', endColorstr='@redmid');
+  background-color: #b81714;
+  color: #ffffff;
+}
+body .navbar:active {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1, #b81714), color-stop(1, #e11714));
+  background: -moz-linear-gradient(center top, #b81714 100%, #e11714 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@reddark', endColorstr='@redmid');
+  background-color: #b81714;
+  color: #ffffff;
 }
