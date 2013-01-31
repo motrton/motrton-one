@@ -175,7 +175,7 @@ function my_styles() {
     wp_register_style( 'superfish', get_template_directory_uri() . '/css/custom-superfish.css' );
     wp_register_style( 'superfish-navbar', get_template_directory_uri() . '/css/custom-superfish-navbar.css',array('superfish') );
     wp_register_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.css' );
-    wp_register_style( 'overwrite', get_template_directory_uri() . '/css/overwrite.css',array('my-jquery-ui-css','font-awesome','superfish','superfish-navbar'));
+    wp_register_style( 'overwrite', get_template_directory_uri() . '/css/overwrite.css');
     wp_register_style( 'oo-naok-style', get_template_directory_uri() . '/css/oo-naok.css',array('overwrite') );
     wp_register_style( 'bs-responsive', get_template_directory_uri() . '/bootstrap/css/bootstrap-responsive.css',array('overwrite'));
 
