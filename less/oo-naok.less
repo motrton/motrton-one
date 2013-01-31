@@ -1,6 +1,6 @@
-//geht los
-// oo-naok.less
-// here and only here you can edit files oo
+// main.less
+// here you can fiddle with code
+
 
 @blue:#08618f;
 @90grey:#3c3c3b;
@@ -11,6 +11,7 @@
 @redlight:#e94d1d;
 @redmid:#e11714;
 @reddark:#b81714;
+@redshadow:#8d1a1e;
 @chamois:#ecdfcb;
 @white:#ffffff;
 @black:#000000;
@@ -18,7 +19,6 @@
 
 
 body{
-
 font-family: 'Source Sans Pro', sans-serif;
 
 
@@ -29,11 +29,31 @@ h1{
 	font-weight: 600;
 	line-height: 1.2;
 }
+h1#title{
+	color: @blue;
+	font-size: 5em;
+	font-weight: 700;
+	line-height: 1.1;
+	letter-spacing: -2px;
+}
+h1#header{
+	color: @blue;
+	font-size: 3.5em;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: -1px;
+}
 h2{
 	color: @blue;
 	font-size: 1.4em;
 	font-weight: 600;
 	line-height: 1.5em;
+}
+h2#marginalia{
+	color: @greenmid;
+	font-size: 1.3em;
+	font-weight: 600;
+	line-height: 1.7em;
 }
 h3{
 	color: @blue;
@@ -70,6 +90,34 @@ p{
 		}
 
 }
-
-
+.navbar {
+	-moz-box-shadow: inset 0px 1px 0px 0px @redlight;
+	-webkit-box-shadow: inset 0px 1px 0px 0px @redlight;
+	box-shadow: inset 0px 1px 0px 0px @redlight;
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.2, @redmid), color-stop(1, @reddark) );
+	background: -moz-linear-gradient( center top, @redmid 20%, @reddark 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@redmid', endColorstr='@reddark');
+	background-color: @redmid;
+	border: 1px solid @reddark;
+	display: inline-block;
+	color: @chamois;
+	font-size: 1.3em;
+	font-weight: 600;
+	padding: 8px 24px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	text-decoration: none;
+}.navbar:hover {
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(1, @reddark), color-stop(1, @redmid) );
+	background: -moz-linear-gradient( center top, @reddark 100%, @redmid 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@reddark', endColorstr='@redmid');
+	background-color: @reddark;
+	color: @white;
+}.navbar:active {
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(1, @reddark), color-stop(1, @redmid) );
+	background: -moz-linear-gradient( center top, @reddark 100%, @redmid 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@reddark', endColorstr='@redmid');
+	background-color: @reddark;
+	color: @white;
+}
 }
